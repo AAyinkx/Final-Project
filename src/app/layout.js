@@ -1,5 +1,8 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import { ClerkProvider, SignedIn, UserButton } from "@clerk/nextjs";
+// import Header from "@/components/Header";
+import { neobrutalism } from "@clerk/themes";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -18,13 +21,26 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  //going to wrap all elements with ClerkProvider
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+    <ClerkProvider
+      appearance={{
+        baseTheme: [neobrutalism],
+      }}
+    >
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <SignedIn>
+            <div className="z-10 fixed top-5 right-5">
+              <UserButton />
+            </div>
+          </SignedIn>
+          {/* <Header /> */}
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
