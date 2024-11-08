@@ -3,6 +3,7 @@ import "./globals.css";
 import { ClerkProvider, SignedIn, UserButton } from "@clerk/nextjs";
 // import Header from "@/components/Header";
 import { neobrutalism } from "@clerk/themes";
+import NavBar from "@/components/NavBar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -36,6 +37,9 @@ export default function RootLayout({ children }) {
             <div className="z-10 fixed top-5 right-5">
               <UserButton />
             </div>
+          </SignedIn>
+          <SignedIn>
+            <NavBar />
           </SignedIn>
           {/* <Header /> */}
           {children}

@@ -22,9 +22,9 @@ export default function HomePage() {
             Sign Up
           </SignUpButton>
         </SignedOut>
-        <SignedIn>
+        {/* <SignedIn>
           <NavBar />
-        </SignedIn>
+        </SignedIn> */}
       </div>
     </>
   );
