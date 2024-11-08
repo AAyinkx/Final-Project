@@ -6,19 +6,22 @@ export default function QuizApi2() {
   const numberOfQuestions = 20;
   useEffect(() => {
     async function getQuestions() {
-      const response = await fetch("http://localhost:3000/api/quiz", {
-        method: "POST", // Switch to POST because we're sending data
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ numberOfQuestions }), // Send the username as part of the request body in JSON format
-      });
+      const response = await fetch(
+        `http://localhost:3000/api/quiz/?q=${numberOfQuestions}`
+        //   , {
+        //   method: "POST", // Switch to POST because we're sending data
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify({ numberOfQuestions }), // Send the username as part of the request body in JSON format
+        // }
+      );
       const data = await response.json();
       setQuestions(data);
     }
     getQuestions();
   }, []);
-
+  console.log(questions);
   return (
     <>
       <h1>Quiz Api</h1>
