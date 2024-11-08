@@ -1,10 +1,18 @@
 "use client";
 import { useState, useEffect } from "react";
+import { randomShuffle } from "@/utils/randomShuffle";
 export default function QuizApi2() {
   const [questions, setQuestions] = useState([]);
+  const numberOfQuestions = 20;
   useEffect(() => {
     async function getQuestions() {
-      const response = await fetch("http://localhost:3000/api/quiz");
+      const response = await fetch("http://localhost:3000/api/quiz", {
+        method: "POST", // Switch to POST because we're sending data
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ numberOfQuestions }), // Send the username as part of the request body in JSON format
+      });
       const data = await response.json();
       setQuestions(data);
     }

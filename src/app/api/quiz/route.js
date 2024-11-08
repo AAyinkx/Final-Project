@@ -1,5 +1,6 @@
-export async function GET() {
-  const numberOfQuestions = 20;
+export async function POST(request) {
+  // const numberOfQuestions = 20;
+  const { numberOfQuestions } = request.body;
   const category = 21;
   const difficulty = "easy";
   //The url of the api is very easy to manipulate so we can easy adjust for user customisation later
