@@ -1,4 +1,6 @@
 import { randomShuffle } from "@/utils/randomShuffle";
+import { decode } from "html-entities";
+
 export default async function QuizApi() {
   const numberOfQuestions = 20;
   const category = 21;
@@ -25,13 +27,13 @@ export default async function QuizApi() {
         let shuffledAnswers = randomShuffle(answers);
         return (
           <div key={index}>
-            <h1>Question&#58; {question.question}</h1>
+            <h1>Question&#58; {decode(question.question)}</h1>
 
-            <p>Answer&#58; {question.correct_answer}</p>
-            <p>{shuffledAnswers[0]}</p>
-            <p>{shuffledAnswers[1]}</p>
-            <p>{shuffledAnswers[2]}</p>
-            <p>{shuffledAnswers[3]}</p>
+            <p>Answer&#58; {decode(question.correct_answer)}</p>
+            <p>{decode(shuffledAnswers[0])}</p>
+            <p>{decode(shuffledAnswers[1])}</p>
+            <p>{decode(shuffledAnswers[2])}</p>
+            <p>{decode(shuffledAnswers[3])}</p>
           </div>
         );
       })}
