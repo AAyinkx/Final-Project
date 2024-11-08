@@ -2,17 +2,32 @@ import { db } from "@/utils/dbConnection";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-export default async function CreateProfileForm({ clerk_id }) {
+export default async function CreateProfileForm({
+  clerk_id,
+  username,
+  first_name,
+  last_name,
+}) {
   async function handleSubmit(formValues) {
     "use server";
     const formData = {
       bio: formValues.get("bio"),
+      date_of_birth: formValues.get("date_of_birth"),
+      image_src: formValues.get("image_src"),
     };
     await db.query(
-      `INSERT INTO users (clerk_id, bio)
-          VALUES ($1, $2);
+      `INSERT INTO users (clerk_id, username, first_name, last_name,date_of_birth, bio, image_src)
+          VALUES ($1, $2, $3, $4, $5, $6, $7);
           `,
-      [clerk_id, formData.bio]
+      [
+        clerk_id,
+        username,
+        first_name,
+        last_name,
+        formData.date_of_birth,
+        formData.bio,
+        formData.image_src,
+      ]
     );
 
     revalidatePath("/profile");
@@ -35,7 +50,7 @@ export default async function CreateProfileForm({ clerk_id }) {
             />
           </div>
           <div className="input">
-            <label htmlFor="image"> Input your image link! </label>
+            <label htmlFor="image_src"> Input your image link! </label>
             <input type="text" id="image_src" name="image_src" />
           </div>
           <div className="input">
