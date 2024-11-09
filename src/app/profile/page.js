@@ -60,47 +60,74 @@ export default async function profilePage() {
 
   return (
     <>
-      <div className="my-10 flex flex-row items-center justify-center max-w-xs min-w-72 border-2 border-green-700 p-1 rounded-lg bg-red-50">
+      {/* <div className="my-10 flex flex-row items-center justify-center max-w-xs min-w-72 border-2 border-green-700 p-1 rounded-lg bg-red-50">
         <h1 className="flex flex-row font-bold">My Profile Page</h1>
+      </div> */}
+
+      <div className="my-10 text-center">
+        <h1 className="text-4xl font-extrabold text-purple-600 drop-shadow-lg">
+          {" "}
+          My Profile Page{" "}
+        </h1>
       </div>
-      <Link
+
+      {/* <Link
         className=" hover:scale-110 ease-in-out transition-transform duration-300 font-bold bg-green-100 w-fit p-1.5 border-green-800 border-4
             rounded-lg my-10"
         href="/profile/add-new-post"
       >
         Add a new post
-      </Link>
+      </Link> */}
+      <div className="flex justify-center">
+        <Link
+          href="/profile/add-new-post"
+          className="transition-transform duration-300 transform hover:scale-110 text-white font-semibold bg-gradient-to-r from-purple-500 to-indigo-500 px-6 py-3 rounded-full shadow-lg"
+        >
+          Add a new post
+        </Link>
+      </div>
 
-      <section className="flex flex-col items-center justify-center ">
-        <div className="max-w-xs min-w-72 border-4 border-green-700 p-4 rounded-lg bg-green-50">
-          <h2>
-            welcome {data?.first_name} {data?.last_name}
+      {/* <section className="flex flex-col items-center justify-center ">
+        <div className="max-w-xs min-w-72 border-4 border-green-700 p-4 rounded-lg bg-green-50"> */}
+      <section className="flex justify-center items-center mt-10">
+        <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md text-center border border-purple-300">
+          <h2 className="text-2xl font-bold text-gray-800">
+            Welcome {data?.first_name} {data?.last_name}
           </h2>
-          <p>
-            age&#58; {Math.floor((date - data.date_of_birth) / 31536000000)}
+          <p className="text-gray-600 mt-2">
+            Age&#58; {Math.floor((date - data.date_of_birth) / 31536000000)}
           </p>
           <Image
             alt={data?.username}
             src={data?.image_src}
             width={300}
             height={300}
-            className=" border-green-800 border-4 rounded-2xl"
+            className="mx-auto mt-4 rounded-full border-4 border-purple-300"
           />
-          <p>username&#58; {data?.username}</p>
-          <p>bio&#58; {data?.bio} </p>
+          <p className="mt-2 text-gray-800 font-medium">
+            Username&#58; {data?.username}
+          </p>
+          <p className="text-gray-500 mt-1">Bio&#58; {data?.bio} </p>
         </div>
       </section>
-      <div className="flex flex-row items-center justify-center max-w-xs min-w-72 border-2 border-green-700 p-1 rounded-lg bg-red-50">
-        <h2 className="font-bold">Posts by {user.firstName}</h2>
-      </div>
 
-      <div className="flex flex-row gap-4 m-4 flex-wrap justify-center ">
+      <section className="mt-10">
+        {/* <div className="flex flex-row items-center justify-center max-w-xs min-w-72 border-2 border-green-700 p-1 rounded-lg bg-red-50"> */}
+        <h2 className="text-3xl font-bold text-purple-600 text-center mb-6">
+          Posts by {user.firstName}
+        </h2>
+        {/* </div> */}
+      </section>
+
+      <div className="flex flex-wrap justify-center gap-6">
         {postData.map((post) => (
           <div
-            className="max-w-xs min-w-72 border-4 border-green-700 p-4 rounded-lg bg-green-50"
+            className="bg-white rounded-lg shadow-md p-4 max-w-sm w-full border border-purple-300 hover:shadow-lg transition-shadow duration-300"
             key={post.id}
           >
-            <p>Date&#58; {dateConverter(post.posted_at)}</p>
+            <p className="text-sm text-gray-500">
+              Date&#58; {dateConverter(post.posted_at)}
+            </p>
             <div>
               <Image
                 alt={post.title}
@@ -109,12 +136,12 @@ export default async function profilePage() {
                 quality={100}
                 width={100}
                 height={100}
-                className="border-4 border-yellow-400  rounded-lg"
+                className="rounded-lg border-2 border-yellow-300 my-2"
               />
             </div>
 
             <Link
-              className="font-bold hover:scale-110 ease-in-out transition-transform duration-300 z-10 inline-block p-1"
+              className="text-purple-600 mt-2 font-bold hover:scale-110 ease-in-out transition-transform duration-300 z-10 inline-block p-1"
               href={`/profile/${post.id}`}
             >
               Topic&#58; {post.title}
@@ -122,40 +149,50 @@ export default async function profilePage() {
           </div>
         ))}
       </div>
-      <div className="flex flex-row items-center justify-center max-w-xs min-w-72 border-2 border-green-700 p-1 rounded-lg bg-red-50">
-        <h2 className="font-bold">You are following&#58;</h2>
-      </div>
-      <div className="flex flex-row gap-4 m-4 flex-wrap justify-center ">
-        {myFollows.map((user) => (
-          <div
-            className="max-w-xs min-w-72 border-4 border-green-700 p-4 rounded-lg bg-green-50"
-            key={user.id}
-          >
-            <Link
-              className="font-bold hover:scale-110 ease-in-out transition-transform duration-300 z-10 inline-block p-1"
-              href={`/community/${user.clerk_id}`}
+
+      {/* <div className="flex flex-row items-center justify-center max-w-xs min-w-72 border-2 border-green-700 p-1 rounded-lg bg-red-50"> */}
+      <section className="mt-10">
+        <h2 className="text-3xl font-bold text-purple-600 text-center mb-6">
+          You are following&#58;
+        </h2>
+        {/* </div> */}
+        <div className="flex flex-wrap justify-center gap-6">
+          {myFollows.map((user) => (
+            <div
+              className="bg-white rounded-lg shadow-md p-4 max-w-sm w-full border border-purple-300 hover:shadow-lg transition-shadow duration-300"
+              key={user.id}
             >
-              {user.first_name} {user.last_name}&#58; {user?.username}
-            </Link>
-          </div>
-        ))}
-      </div>
-      <div className="flex flex-row items-center justify-center max-w-xs min-w-72 border-2 border-green-700 p-1 rounded-lg bg-red-50">
-        <h2 className="font-bold">Post News Feed&#58;</h2>
-      </div>
-      <div className="my-4 border-4 border-green-700 p-4 rounded-lg bg-blue-50">
-        {myFollowPosts.map((post, index) => (
-          <div key={index}>
-            <Link
-              className="font-bold hover:scale-110 ease-in-out transition-transform duration-300 z-10 inline-block p-1"
-              href={`/profile/${myExtraData[index].id}`}
-            >
-              Post on {dateConverter(post.posted_at)} by {post.username}
-              titled {post.title}
-            </Link>
-          </div>
-        ))}
-      </div>
+              <Link
+                className="text-purple-600 font-bold hover:scale-110 ease-in-out transition-transform duration-300 z-10 inline-block p-1"
+                href={`/community/${user.clerk_id}`}
+              >
+                {user.first_name} {user.last_name}&#58; {user?.username}
+              </Link>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-10">
+        {/* <div className="flex flex-row items-center justify-center max-w-xs min-w-72 border-2 border-green-700 p-1 rounded-lg bg-red-50"> */}
+        <h2 className="text-3xl font-bold text-purple-600 text-center mb-6">
+          Post News Feed&#58;
+        </h2>
+        {/* </div> */}
+        <div className="bg-blue-100 rounded-lg shadow-md p-6 mx-auto max-w-3xl">
+          {myFollowPosts.map((post, index) => (
+            <div key={index} className="border-b border-purple-300 pb-4 mb-4">
+              <Link
+                className="text-indigo-600 font-bold hover:scale-110 ease-in-out transition-transform duration-300 z-10 inline-block p-1"
+                href={`/profile/${myExtraData[index].id}`}
+              >
+                Post on {dateConverter(post.posted_at)} by {post.username}
+                titled {post.title}
+              </Link>
+            </div>
+          ))}
+        </div>
+      </section>
     </>
   );
 }
