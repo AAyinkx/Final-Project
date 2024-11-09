@@ -33,7 +33,17 @@ export default function NavBar() {
                 <Link href="/quiz-categories">Quiz categories</Link>
               </li>
               <li>
-                <Link href="/profile">Profile</Link>
+                <details>
+                  <summary>
+                    <Link href="/profile">Profile</Link>
+                  </summary>
+
+                  <ul className="p-2">
+                    <li>
+                      <Link href="/profile/add-new-post">Add new post</Link>
+                    </li>
+                  </ul>
+                </details>
               </li>
               <li>
                 <Link href="/challenge">Challenge</Link>
@@ -57,7 +67,17 @@ export default function NavBar() {
               <Link href="/quiz-categories">Quiz categories</Link>
             </li>
             <li>
-              <Link href="/profile">Profile</Link>
+              <details>
+                <summary>
+                  <Link href="/profile">Profile</Link>
+                </summary>
+
+                <ul className="p-2 ">
+                  <li>
+                    <Link href="/profile/add-new-post">Add new post</Link>
+                  </li>
+                </ul>
+              </details>
             </li>
             <li>
               <Link href="/challenge">Challenge</Link>
