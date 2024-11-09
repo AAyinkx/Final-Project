@@ -25,6 +25,11 @@ export default function HomePage() {
         {/* <SignedIn>
           <NavBar />
         </SignedIn> */}
+        <footer className="w-full bg-gray-200 py-4 text-gray-600 text-center">
+          <p>
+            &copy; {new Date().getFullYear()} Mind Match. All rights reserved.
+          </p>
+        </footer>
       </div>
     </>
   );
