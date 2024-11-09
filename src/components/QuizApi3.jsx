@@ -1,30 +1,35 @@
 "use client";
 import { useState, useEffect } from "react";
 import { randomShuffle } from "@/utils/randomShuffle";
-export default function QuizApi2() {
-  const [questions, setQuestions] = useState([]);
+export default function QuizApi3() {
+  // const [questions, setQuestions] = useState([]);
   const numberOfQuestions = 20;
+
+  const getQuestions = async () => {
+    const response = await fetch(
+      "https://the-trivia-api.com/api/questions?limit=10"
+    );
+
+    const questions = await response.json();
+
+    return questions;
+  };
+
+  const [questions, setQuestions] = useState([]);
+
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [score, setScore] = useState(0);
+
+  const currentQuestion = questions[currentQuestionIndex];
+  const remainingNumberOfQuestions = questions.length - currentQuestionIndex;
   useEffect(() => {
-    async function getQuestions() {
-      const response = await fetch(
-        `http://localhost:3000/api/quiz/?q=${numberOfQuestions}`
-        //   , {
-        //   method: "POST", // Switch to POST because we're sending data
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify({ numberOfQuestions }), // Send the username as part of the request body in JSON format
-        // }
-      );
-      const data = await response.json();
-      setQuestions(data);
-    }
-    getQuestions();
+    getQuestions().then((res) => setQuestions(res));
   }, []);
-  console.log({ questions });
+
+  // console.log({ questions });
   return (
     <>
-      <h1>{questions[0]}</h1>
+      <h1>{questions[0].category}</h1>
 
       {/* {questions.map((question, index) => {
         let answers = [
