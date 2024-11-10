@@ -4,6 +4,7 @@ import { ClerkProvider, SignedIn, UserButton } from "@clerk/nextjs";
 // import Header from "@/components/Header";
 import { neobrutalism } from "@clerk/themes";
 import NavBar from "@/components/NavBar";
+import Script from "next/script";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,6 +34,10 @@ export default function RootLayout({ children }) {
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
+          <Script
+            src="https://kit.fontawesome.com/5d4d1c054f.js"
+            crossOrigin="anonymous"
+          ></Script>
           <SignedIn>
             <div className="z-10 fixed top-5 right-5">
               <UserButton />

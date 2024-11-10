@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { dateConverter } from "@/utils/handyFunctions";
 import FollowButton from "@/components/FollowButton";
-
+import ThumbButton from "@/components/ThumbButton";
 export default async function UserPage({ params }) {
   const date = new Date();
   const myParams = await params;
@@ -43,6 +43,59 @@ VALUES ('${followerId}','${followedId}')`);
 
     revalidatePath("/profile");
     redirect("/profile");
+  }
+  // ===================================================
+  // handleLikes
+
+  async function handleLikes(id) {
+    "use server";
+    const user = await currentUser();
+    const likes = await db.query(`SELECT id FROM likes WHERE post_id=${id};`);
+
+    if (likes.rows[0]) {
+      const update = await db.query(
+        `UPDATE likes SET likes = likes + 1 WHERE post_id=$1 RETURNING *`,
+        [id]
+      );
+      console.log(update.rows[0]);
+      const instance = await db.query(
+        `SELECT * FROM user_liked_posts WHERE clerk_id=$1 AND likes_id=$2`,
+        [user.id, update.rows[0].id]
+      );
+      console.log(instance.rows[0]);
+      if (!instance.rows[0]) {
+        const usersLikes = await db.query(
+          `INSERT INTO user_liked_posts(clerk_id, likes_id) VALUES ($1,$2)`,
+          [user.id, update.rows[0].id]
+        );
+      }
+    } else {
+      const insert = await db.query(
+        `INSERT INTO likes(post_id, likes) VALUES($1,$2)`,
+        [id, 1]
+      );
+      const latestLike = await db.query(
+        `SELECT id FROM likes ORDER BY id DESC LIMIT 1;`
+      );
+      console.log(latestLike.rows[0].id);
+      const usersLikes = await db.query(
+        `INSERT INTO user_liked_posts(clerk_id, likes_id) VALUES ($1,$2)`,
+        [user.id, latestLike.rows[0].id]
+      );
+    }
+  }
+
+  async function Initial(id) {
+    "use server";
+    const startLikes = await db.query(
+      `SELECT likes FROM likes WHERE post_id=$1`,
+      [id]
+    );
+    if (startLikes.rows[0]) {
+      return startLikes.rows[0].likes;
+    } else {
+      return 0;
+    }
   }
 
   return (
@@ -86,7 +139,7 @@ VALUES ('${followerId}','${followedId}')`);
       {/* <h2>Posts by {user.firstName}</h2> */}
       <h2>Posts by {data.username}</h2>
       <div className="flex flex-row gap-4 m-4 flex-wrap justify-center ">
-        {postData.map((post) => (
+        {postData.map(async (post) => (
           <div
             className="max-w-xs min-w-72 border-4 border-green-700 p-4 rounded-lg bg-green-50"
             key={post.id}
@@ -103,13 +156,20 @@ VALUES ('${followerId}','${followedId}')`);
                 className="border-4 border-yellow-400  rounded-lg"
               />
             </div>
-
             <Link
               className="font-bold hover:scale-110 ease-in-out transition-transform duration-300 z-10 inline-block p-1"
               href={`/community/${userId}/${post.id}`}
             >
               Title&#58; {post.title}
             </Link>
+            <br />
+            <div className="relative">
+              <ThumbButton
+                id={post.id}
+                handleClicks={handleLikes}
+                start={await Initial(post.id)}
+              />
+            </div>
           </div>
         ))}
       </div>

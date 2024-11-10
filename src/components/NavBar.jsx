@@ -42,6 +42,9 @@ export default function NavBar() {
                     <li>
                       <Link href="/profile/add-new-post">Add new post</Link>
                     </li>
+                    <li>
+                      <Link href="/profile/liked-posts">Liked Posts</Link>
+                    </li>
                   </ul>
                 </details>
               </li>
@@ -75,6 +78,9 @@ export default function NavBar() {
                 <ul className="p-2 ">
                   <li>
                     <Link href="/profile/add-new-post">Add new post</Link>
+                  </li>
+                  <li>
+                    <Link href="/profile/liked-posts">Liked Posts</Link>
                   </li>
                 </ul>
               </details>
