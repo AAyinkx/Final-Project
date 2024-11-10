@@ -1,0 +1,40 @@
+#thumb-container {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+}
+.thumButton {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 30px;
+  font-size: 20px;
+}
+#thumb-button {
+  color: black;
+  cursor: pointer;
+  font-size: 30px;
+}
+.thumButton:hover {
+  scale: 1.2;
+}
+.green {
+  color: #4caf50;
+}
+#scale {
+  scale: 1;
+}
+@media ((width<=580px)) {
+  .thumButton {
+    font-size: 20px;
+  }
+}
+@media ((width<=450px)) {
+  .thumButton {
+    font-size: 15px;
+  }
+}

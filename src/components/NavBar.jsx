@@ -43,7 +43,13 @@ export default function NavBar() {
                       <Link href="/profile/add-new-post">Add new post</Link>
                     </li>
                     <li>
+
+                      <Link href="/profile/liked-posts">Liked Posts</Link>
+                     </li>
+
+                      <li>
                       <Link href="/profile/update-profile">Update profile</Link>
+
                     </li>
                   </ul>
                 </details>
@@ -80,7 +86,13 @@ export default function NavBar() {
                     <Link href="/profile/add-new-post">Add new post</Link>
                   </li>
                   <li>
+
+                    <Link href="/profile/liked-posts">Liked Posts</Link>
+                  </li>
+
+                      <li>
                     <Link href="/profile/update-profile">Update profile</Link>
+
                   </li>
                 </ul>
               </details>

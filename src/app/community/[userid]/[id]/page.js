@@ -4,6 +4,8 @@ import Link from "next/link";
 import { dateConverter } from "@/utils/handyFunctions";
 import CommentForm from "@/components/CommentForm";
 import DisplayComments from "@/components/DisplayComments";
+import ThumbButton from "@/components/ThumbButton";
+import { currentUser } from "@clerk/nextjs/server";
 
 export default async function UserPostsPage({ params }) {
   const myParams = await params;
@@ -28,6 +30,57 @@ export default async function UserPostsPage({ params }) {
   console.log(myUserName);
 
   // ===========================
+  //handleLikes
+  async function handleLikes(id) {
+    "use server";
+    const user = await currentUser();
+    const likes = await db.query(`SELECT id FROM likes WHERE post_id=${id};`);
+
+    if (likes.rows[0]) {
+      const update = await db.query(
+        `UPDATE likes SET likes = likes + 1 WHERE post_id=$1 RETURNING *`,
+        [id]
+      );
+      console.log(update.rows[0]);
+      const instance = await db.query(
+        `SELECT * FROM user_liked_posts WHERE clerk_id=$1 AND likes_id=$2`,
+        [user.id, update.rows[0].id]
+      );
+      console.log(instance.rows[0]);
+      if (!instance.rows[0]) {
+        const usersLikes = await db.query(
+          `INSERT INTO user_liked_posts(clerk_id, likes_id) VALUES ($1,$2)`,
+          [user.id, update.rows[0].id]
+        );
+      }
+    } else {
+      const insert = await db.query(
+        `INSERT INTO likes(post_id, likes) VALUES($1,$2)`,
+        [id, 1]
+      );
+      const latestLike = await db.query(
+        `SELECT id FROM likes ORDER BY id DESC LIMIT 1;`
+      );
+      console.log(latestLike.rows[0].id);
+      const usersLikes = await db.query(
+        `INSERT INTO user_liked_posts(clerk_id, likes_id) VALUES ($1,$2)`,
+        [user.id, latestLike.rows[0].id]
+      );
+    }
+  }
+
+  async function Initial(id) {
+    "use server";
+    const startLikes = await db.query(
+      `SELECT likes FROM likes WHERE post_id=$1`,
+      [id]
+    );
+    if (startLikes.rows[0]) {
+      return startLikes.rows[0].likes;
+    } else {
+      return 0;
+    }
+  }
 
   return (
     <>
@@ -57,6 +110,13 @@ export default async function UserPostsPage({ params }) {
             className=" border-green-800 border-4 rounded-2xl"
           />
           <p>{data.content}</p>
+          <div className="relative">
+            <ThumbButton
+              id={postId}
+              handleClicks={handleLikes}
+              start={await Initial(postId)}
+            />
+          </div>
         </div>
       </section>
       <CommentForm myParams={myParams} />
