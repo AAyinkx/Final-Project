@@ -10,12 +10,12 @@ export const useQuiz = () => {
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [retryCount, setRetryCount] = useState(0);
   const firstRun = useRef(true);
-
+  const numberOfQuestions = 5;
   // Function to fetch quiz questions
   const fetchQuestions = async () => {
     try {
       const response = await fetch(
-        "https://opentdb.com/api.php?amount=10&type=multiple"
+        `http://localhost:3000/api/quiz/?q=${numberOfQuestions}`
       );
       const data = await response.json();
       if (data.response_code === 0) {

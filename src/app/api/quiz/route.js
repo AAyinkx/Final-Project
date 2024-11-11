@@ -3,7 +3,7 @@ export async function GET(req) {
   const url = await req.nextUrl.searchParams;
   const qry = url.get("q");
   // const { numberOfQuestions } = request.body;
-  const category = 26;
+  const category = 21;
   const difficulty = "easy";
   //The url of the api is very easy to manipulate so we can easy adjust for user customisation later
   const response = await fetch(
