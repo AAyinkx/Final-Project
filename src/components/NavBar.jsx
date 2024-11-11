@@ -43,13 +43,11 @@ export default function NavBar() {
                       <Link href="/profile/add-new-post">Add new post</Link>
                     </li>
                     <li>
-
                       <Link href="/profile/liked-posts">Liked Posts</Link>
-                     </li>
+                    </li>
 
-                      <li>
+                    <li>
                       <Link href="/profile/update-profile">Update profile</Link>
-
                     </li>
                   </ul>
                 </details>
@@ -58,7 +56,22 @@ export default function NavBar() {
                 <Link href="/challenge">Challenge</Link>
               </li>
               <li>
-                <Link href="/code">Code</Link>
+                <details>
+                  <summary>
+                    <Link href="/code">Code</Link>
+                  </summary>
+
+                  <ul className="p-2 ">
+                    <li>
+                      <Link href="/code/cities">Cities Challenge</Link>
+                    </li>
+                    <li>
+                      <Link href="/code/coding-challenge">
+                        Coding Challenge
+                      </Link>
+                    </li>
+                  </ul>
+                </details>
               </li>
               <li>
                 <Link href="/community">Community</Link>
@@ -86,13 +99,11 @@ export default function NavBar() {
                     <Link href="/profile/add-new-post">Add new post</Link>
                   </li>
                   <li>
-
                     <Link href="/profile/liked-posts">Liked Posts</Link>
                   </li>
 
-                      <li>
+                  <li>
                     <Link href="/profile/update-profile">Update profile</Link>
-
                   </li>
                 </ul>
               </details>
@@ -101,7 +112,20 @@ export default function NavBar() {
               <Link href="/challenge">Challenge</Link>
             </li>
             <li>
-              <Link href="/code">Code</Link>
+              <details>
+                <summary>
+                  <Link href="/code">Code</Link>
+                </summary>
+
+                <ul className="p-2 ">
+                  <li>
+                    <Link href="/code/cities">Cities Challenge</Link>
+                  </li>
+                  <li>
+                    <Link href="/code/coding-challenge">Coding Challenge</Link>
+                  </li>
+                </ul>
+              </details>
             </li>
             <li>
               <Link href="/community">Community</Link>

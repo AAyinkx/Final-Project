@@ -1,14 +1,7 @@
-import BoxMatching from "@/components/BoxMatching";
-export default function CodePage() {
+export default function MatchingChallengesPage() {
   return (
     <>
-      <h1>code</h1>
-      <div
-        className="flex min-h-screen bg-gray-100 flex-col 
-      items-center justify-between p-24"
-      >
-        <BoxMatching />
-      </div>
+      <h1>Matching challenges</h1>
     </>
   );
 }
