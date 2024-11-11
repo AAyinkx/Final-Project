@@ -8,3 +8,17 @@ export function dateConverter(dbDate) {
   });
   return formattedDate;
 }
+
+export const shuffleArray = (array) => {
+  return array.sort(() => Math.random() - 0.5);
+};
+
+const decodeHtml = (html) => {
+  const textArea = document.createElement("textarea");
+  textArea.innerHTML = html;
+  return textArea.value;
+};
+
+export const formattedQuestion = (string) => decodeHtml(string);
+
+export const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
