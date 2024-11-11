@@ -7,6 +7,7 @@ import QuizApi3 from "@/components/QuizApi3";
 import QuizApi4 from "@/components/QuizApi4";
 import QuizApi5 from "@/components/QuizApi5";
 import QuizApi7 from "@/components/QuizApi7";
+
 import Result from "@/components/Result";
 import { useQuiz } from "@/hooks/useQuiz";
 import Image from "next/image";
@@ -39,9 +40,11 @@ export default function QuizCategoriesPage() {
   }
   return (
     <>
+
       <h1>quiz categories {user.id}</h1>
       <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-green-300">
         <h1 className="mb-6 font-bold text-3xl">The Mind Match Quiz</h1>
+
         <QuizApi7
           questionData={questions[currentQuestionIndex]}
           handleAnswer={handleAnswer}
