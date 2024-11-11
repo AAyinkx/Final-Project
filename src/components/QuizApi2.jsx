@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { randomShuffle } from "@/utils/randomShuffle";
 export default function QuizApi2() {
   const [questions, setQuestions] = useState([]);
-  const numberOfQuestions = 20;
+  const numberOfQuestions = 10;
   useEffect(() => {
     async function getQuestions() {
       const response = await fetch(
@@ -17,7 +17,7 @@ export default function QuizApi2() {
         // }
       );
       const data = await response.json();
-      setQuestions(data);
+      setQuestions(data.results);
     }
     getQuestions();
   }, []);
@@ -26,7 +26,7 @@ export default function QuizApi2() {
     <>
       <h1>{questions[0]}</h1>
 
-      {/* {questions.map((question, index) => {
+      {questions.map((question, index) => {
         let answers = [
           question.correctAnswer,
           question.incorrectAnswers[0],
@@ -45,7 +45,7 @@ export default function QuizApi2() {
             <p>{shuffledAnswers[3]}</p>
           </div>
         );
-      })} */}
+      })}
     </>
   );
 }

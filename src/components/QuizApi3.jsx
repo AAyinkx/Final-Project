@@ -29,7 +29,7 @@ export default function QuizApi3() {
   // console.log({ questions });
   return (
     <>
-      <h1>{questions[0].category}</h1>
+      <h1>{questions[0]}</h1>
 
       {/* {questions.map((question, index) => {
         let answers = [
