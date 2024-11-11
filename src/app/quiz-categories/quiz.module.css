@@ -1,0 +1,10 @@
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.backgroundImage {
+  z-index: -1;
+  opacity: 0.5;
+}

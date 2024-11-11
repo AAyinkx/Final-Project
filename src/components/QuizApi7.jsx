@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 import { shuffleArray } from "@/utils/handyFunctions";
 import { formattedQuestion } from "@/utils/handyFunctions";
@@ -25,7 +26,7 @@ export default function QuizApi7({ questionData, handleAnswer, currentScore }) {
         {shuffledAnswers.map((answer, index) => (
           <button
             key={index}
-            className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600"
+            className="btn btn-accent py-2 px-4"
             onClick={() => handleAnswer(answer)}
           >
             {answer}
