@@ -1,5 +1,10 @@
-import QuizApi2 from "@/components/QuizApi2";
 import QuizApi4Hanifah from "@/components/QuizApi4Hanifah";
+import QuizApi5Hanifah from "@/components/QuizApi5Hanifah";
 export default function Quiz2() {
-  return <p>hello</p>;
+  return (
+    <>
+      <p>Quiz API</p>
+      <QuizApi5Hanifah />
+    </>
+  );
 }
