@@ -8,17 +8,19 @@ export default function QuizApi4() {
 
   useEffect(() => {
     async function getQuestions() {
+      // !change port number if needed
       const response = await fetch(
-        "https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple"
+        `http://localhost:3001/api/quiz/?q=${numberOfQuestions}`
       );
-      const data = response.json();
-
-      setQuestions(data);
+      const data = await response.json();
+      const wrangledData = data.results;
+      setQuestions([wrangledData]);
     }
     getQuestions();
   }, []);
 
   console.log(typeof questions);
+  console.log(questions);
   //!Quiz Setup
   // const [currentQuestion, setCurrentQuestion] = useState(0);
   // const [showScore, setShowScore] = useState(false);
@@ -40,6 +42,7 @@ export default function QuizApi4() {
   return (
     <>
       <h1>Quiz Api</h1>
+      <p>{questions[0].type}</p>
 
       {/* <div className="app">
         {showScore ? (
