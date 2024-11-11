@@ -81,7 +81,7 @@ export default async function profilePage() {
       <div className="flex justify-center">
         <Link
           href="/profile/add-new-post"
-          className="transition-transform duration-300 transform hover:scale-105 text-white font-semibold bg-gradient-to-r from-blue-500 to-green-500 px-6 py-3 rounded-full shadow-lg"
+          className="transition-transform duration-300 transform hover:scale-105 text-white font-semibold bg-gradient-to-r from-blue-600 to-green-600 px-6 py-3 rounded-full shadow-lg"
         >
           Add a new post
         </Link>
@@ -91,7 +91,7 @@ export default async function profilePage() {
         <div className="max-w-xs min-w-72 border-4 border-green-700 p-4 rounded-lg bg-green-50"> */}
       <section className="flex justify-center items-center mt-10">
         <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md text-center border-4 border-sky-300">
-          <h2 className="text-2xl font-bold text-gray-800">
+          <h2 className="text-2xl font-bold text-blue-800">
             Welcome {data?.first_name} {data?.last_name}
           </h2>
           <p className="text-gray-600 mt-2">
@@ -113,7 +113,7 @@ export default async function profilePage() {
 
       <section className="mt-10">
         {/* <div className="flex flex-row items-center justify-center max-w-xs min-w-72 border-2 border-green-700 p-1 rounded-lg bg-red-50"> */}
-        <h2 className="text-4xl font-bold text-green-600 text-center mb-6">
+        <h2 className="text-4xl text-center font-extrabold bg-gradient-to-r from-green-400 to-blue-400 text-transparent bg-clip-text drop-shadow-lg mb-6">
           Your Posts
         </h2>
 
@@ -137,7 +137,7 @@ export default async function profilePage() {
                 quality={100}
                 width={100}
                 height={100}
-                className="rounded-lg border-2 border-red-300 my-2"
+                className="rounded-lg border-2 border-blue-200 my-2"
               />
             </div>
 
@@ -153,18 +153,18 @@ export default async function profilePage() {
 
       {/* <div className="flex flex-row items-center justify-center max-w-xs min-w-72 border-2 border-green-700 p-1 rounded-lg bg-red-50"> */}
       <section className="mt-10">
-        <h2 className="text-4xl font-bold text-red-500 text-center mb-6">
+        <h2 className="text-4xl text-center font-extrabold bg-gradient-to-r from-green-400 to-blue-400 text-transparent bg-clip-text drop-shadow-lg mb-6">
           You are following&#58;
         </h2>
         {/* </div> */}
         <div className="flex flex-wrap justify-center gap-6">
           {myFollows.map((user) => (
             <div
-              className="bg-white rounded-lg shadow-md p-4 max-w-sm w-full border border-purple-300 hover:shadow-lg transition-shadow duration-300"
+              className="bg-white rounded-lg shadow-md p-4 max-w-sm w-full border border-sky-500 hover:shadow-lg transition-shadow duration-300"
               key={user.id}
             >
               <Link
-                className="text-purple-600 font-bold hover:scale-110 ease-in-out transition-transform duration-300 z-10 inline-block p-1"
+                className="text-blue-700 font-bold hover:scale-110 ease-in-out transition-transform duration-300 z-10 inline-block p-1"
                 href={`/community/${user.clerk_id}`}
               >
                 {user.first_name} {user.last_name}&#58; {user?.username}
@@ -176,15 +176,15 @@ export default async function profilePage() {
 
       <section className="mt-10">
         {/* <div className="flex flex-row items-center justify-center max-w-xs min-w-72 border-2 border-green-700 p-1 rounded-lg bg-red-50"> */}
-        <h2 className="text-3xl font-bold text-purple-600 text-center mb-6">
+        <h2 className="text-4xl text-center font-extrabold bg-gradient-to-r from-green-400 to-blue-400 text-transparent bg-clip-text drop-shadow-lg mb-6">
           Post News Feed&#58;
         </h2>
         {/* </div> */}
-        <div className="bg-blue-100 rounded-lg shadow-md p-6 mx-auto max-w-3xl">
+        <div className="bg-blue-50 rounded-lg shadow-md p-6 mx-auto max-w-3xl border border-blue-400 max-h-48 overflow-scroll">
           {myFollowPosts.map((post, index) => (
-            <div key={index} className="border-b border-purple-300 pb-4 mb-4">
+            <div key={index} className="border-b border-sky-300 pb-4 mb-4">
               <Link
-                className="text-indigo-600 font-bold hover:scale-110 ease-in-out transition-transform duration-300 z-10 inline-block p-1"
+                className="text-blue-700 font-bold hover:scale-110 ease-in-out transition-transform duration-300 z-10 inline-block p-1"
                 href={`/profile/${myExtraData[index].id}`}
               >
                 Post on {dateConverter(post.posted_at)} by {post.username}

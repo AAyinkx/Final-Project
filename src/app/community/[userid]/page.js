@@ -101,10 +101,9 @@ VALUES ('${followerId}','${followedId}')`);
   return (
     <>
       <h1>welcome to {myParams.userid} page</h1>
-      <div className="my-4 mx-2 flex flex-col gap-2">
+      <div className="flex justify-center">
         <Link
-          className="hover:scale-110 ease-in-out transition-transform duration-300 font-bold bg-green-100 w-fit p-1.5 border-green-800 border-4
-            rounded-lg my-10"
+          className="transition-transform duration-300 transform hover:scale-105 text-white font-semibold bg-gradient-to-r from-blue-600 to-green-600 px-6 py-3 rounded-full shadow-lg"
           href="/community"
         >
           go back ...
@@ -117,22 +116,24 @@ VALUES ('${followerId}','${followedId}')`);
       </div>
 
       <section className="flex flex-col justify-center items-center">
-        <div className="flex flex-col max-w-xs min-w-72 border-4 border-green-700 p-4 rounded-lg bg-green-50">
-          <h2>
-            welcome to the profile page of {data.first_name} {data.last_name}
+        <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md text-center border-4 border-sky-300">
+          <h2 className="text-2xl font-bold text-blue-800">
+            Welcome to the profile page of {data.first_name} {data.last_name}
           </h2>
-          <p>
-            age&#58; {Math.floor((date - data.date_of_birth) / 31536000000)}
+          <p className="text-gray-600 mt-2">
+            Age&#58; {Math.floor((date - data.date_of_birth) / 31536000000)}
           </p>
           <Image
             alt={data.username}
             src={data.image_src}
             width={300}
             height={300}
-            className=" border-green-800 border-4 rounded-2xl"
+            className="mx-auto mt-4 rounded-full border-4 border-green-400"
           />
-          <p>username&#58; {data.username}</p>
-          <p>bio&#58; {data.bio} </p>
+          <p className="mt-2 text-blue-700 font-medium">
+            Username&#58; {data.username}
+          </p>
+          <p className="text-gray-500 mt-1">Bio&#58; {data.bio} </p>
         </div>
       </section>
 
