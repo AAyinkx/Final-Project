@@ -6,9 +6,7 @@ import QuizApi7 from "@/components/QuizApi7";
 
 import Result from "@/components/Result";
 import { useQuiz } from "@/hooks/useQuiz";
-import Image from "next/image";
-import styles from "./quiz.module.css";
-import backgroundImage from "@/../public/quiz-background.png";
+
 export default function NotInUse() {
   // const [currentUser2, setCurrentUser2] = useState("");
   const { user } = useUser();

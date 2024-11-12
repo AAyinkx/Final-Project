@@ -1,4 +1,4 @@
-import quizCategories from "@/lib/quizCategories.json";
+import quizCategories from "@/lib/quizCategoriesAll.json";
 import Link from "next/link";
 export default function QuizCategoriesPage() {
   return (
