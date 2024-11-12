@@ -10,7 +10,9 @@ export default async function CommunityPage() {
 
   return (
     <>
-      <h1>List of all users</h1>
+      <h1 className="mb-6 text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-sky-400 text-transparent bg-clip-text drop-shadow-lg">
+        Users
+      </h1>
       <div className="flex flex-row gap-4 m-4 flex-wrap justify-center ">
         {data.map((user) => (
           <div

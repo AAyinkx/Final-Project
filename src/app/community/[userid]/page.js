@@ -100,7 +100,7 @@ VALUES ('${followerId}','${followedId}')`);
 
   return (
     <>
-      <h1>welcome to {myParams.userid} page</h1>
+      <h1>welcome to {myParams.username} page</h1>
       <div className="flex justify-center">
         <Link
           className="transition-transform duration-300 transform hover:scale-105 text-white font-semibold bg-gradient-to-r from-blue-600 to-green-600 px-6 py-3 rounded-full shadow-lg"
@@ -138,11 +138,13 @@ VALUES ('${followerId}','${followedId}')`);
       </section>
 
       {/* <h2>Posts by {user.firstName}</h2> */}
-      <h2>Posts by {data.username}</h2>
+      <h2 className="text-2xl text-center m-6 font-extrabold bg-gradient-to-r from-green-400 to-blue-400 text-transparent bg-clip-text drop-shadow-lg mb-6">
+        Posts by {data.username}
+      </h2>
       <div className="flex flex-row gap-4 m-4 flex-wrap justify-center ">
         {postData.map(async (post) => (
           <div
-            className="max-w-xs min-w-72 border-4 border-green-700 p-4 rounded-lg bg-green-50"
+            className="bg-white font-bold rounded-lg shadow-md p-4 max-w-sm w-full border-4 border-blue-300 hover:shadow-xl transition-shadow duration-300"
             key={post.id}
           >
             <p>Date&#58; {dateConverter(post.posted_at)}</p>
@@ -154,11 +156,11 @@ VALUES ('${followerId}','${followedId}')`);
                 quality={100}
                 width={100}
                 height={100}
-                className="border-4 border-yellow-400  rounded-lg"
+                className="rounded-lg border-2 border-blue-200 my-2"
               />
             </div>
             <Link
-              className="font-bold hover:scale-110 ease-in-out transition-transform duration-300 z-10 inline-block p-1"
+              className="text-blue-900 mt-2 font-bold hover:scale-105 ease-in-out transition-transform duration-300 z-10 inline-block p-1"
               href={`/community/${userId}/${post.id}`}
             >
               Title&#58; {post.title}
