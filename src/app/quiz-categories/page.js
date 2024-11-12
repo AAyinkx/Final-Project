@@ -35,6 +35,7 @@ export default function QuizCategoriesPage() {
         score={score}
         totalQuestions={questions.length}
         onRestart={restartQuiz}
+        userId={user.id}
       />
     );
   }

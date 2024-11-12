@@ -1,5 +1,11 @@
 "use client";
-export default function Result({ score, totalQuestions, onRestart }) {
+export default function Result({ score, totalQuestions, onRestart, userId }) {
+  // async function handleDbPost(userId) {
+  //   const postData = {
+  //     id: userId,
+  //   };
+  // }
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-green-300">
       <div className="max-w-xl w-full bg-white rounded-lg shadow-md p-6 text-center">
