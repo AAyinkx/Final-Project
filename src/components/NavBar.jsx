@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import logo from "@/../public/MindMatch3.png";
 
 export default function NavBar() {
   return (
@@ -78,7 +80,10 @@ export default function NavBar() {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">Mind Match</a>
+
+          <a className="btn btn-ghost text-xl place-content-center">
+            <Image alt="MindMatch" width="auto" height={50} src={logo} />
+          </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
