@@ -1,11 +1,12 @@
 import { SignedOut, SignInButton, SignUpButton, SignedIn } from "@clerk/nextjs";
 import NavBar from "@/components/NavBar";
-
+import Image from "next/image";
+import logo from "@/../public/MindMatch2.png";
 export default function HomePage() {
   return (
-    <>
-      <h1>Home Page</h1>
-      <h1 className={`text-8xl mb-12 `}>Mind Match</h1>
+    <div className="flex flex-col items-center justify-center min-h-[80vh] p-4">
+      {/* <h1 className={`text-8xl mb-12 `}>Mind Match</h1> */}
+      <Image src={logo} alt="Mind Match Logo" width={500} height={500} />
       <div className="top-2 right-5">
         <SignedOut>
           <SignInButton
@@ -26,6 +27,6 @@ export default function HomePage() {
           <NavBar />
         </SignedIn> */}
       </div>
-    </>
+    </div>
   );
 }
