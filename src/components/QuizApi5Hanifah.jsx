@@ -92,7 +92,7 @@ export default function QuizApi5Hanifah() {
           <div>
             <progress
               className="progress progress-accent  text-center"
-              value={(currentQuestion / questions.length) * 100}
+              value={((currentQuestion + 1) / questions.length) * 100}
               max="100"
             ></progress>
             <div>
