@@ -1,9 +1,11 @@
 "use client";
 //When we get our API working
+import { useUser } from "@clerk/nextjs";
 import { decode } from "html-entities";
 import { randomShuffle } from "@/utils/randomShuffle";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import QuizResults from "./QuizResults";
 export default function QuizApi5Hanifah() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   // const [shuffledQuestions, setShuffledQuestion] = useState([]);
@@ -13,6 +15,7 @@ export default function QuizApi5Hanifah() {
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
 
+  const { user } = useUser();
   useEffect(() => {
     async function getQuestions() {
       const response = await fetch(
@@ -39,7 +42,7 @@ export default function QuizApi5Hanifah() {
     }
 
     const nextQuestion = currentQuestion + 1;
-    if (nextQuestion < questions.length) {
+    if (nextQuestion < numberOfQuestions) {
       setCurrentQuestion(nextQuestion);
     } else {
       setShowScore(true);
@@ -70,33 +73,22 @@ export default function QuizApi5Hanifah() {
   return (
     <div className="max-w-xl w-full bg-white rounded-lg shadow-md p-6">
       {showScore ? (
-        <div className="text-center">
-          <h2 className="text-2xl font-bold mb-4">Quiz Completed!</h2>
-          <div className="text-lg mb-4">
-            You scored {score} out of {questions.length}
-          </div>
-          <button
-            className="py-2 px-4btn btn btn-info mr-2"
-            onClick={restartQuiz}
-          >
-            Try Again
-          </button>
-          {/* <span>
-            <Link className="py-2 px-4btn btn btn-info ml-2" href="/">
-              Return home
-            </Link>
-          </span> */}
-        </div>
+        <QuizResults
+          userId={user.id}
+          score={score}
+          number_of_questions={questions.length}
+          restartQuiz={restartQuiz}
+        />
       ) : (
         <>
           <div>
             <progress
               className="progress progress-accent  text-center"
-              value={((currentQuestion + 1) / questions.length) * 100}
+              value={((currentQuestion + 1) / numberOfQuestions) * 100}
               max="100"
             ></progress>
             <div>
-              <span>Question {currentQuestion + 1}</span>/{questions.length}
+              <span>Question {currentQuestion + 1}</span>/{numberOfQuestions}
             </div>
             <h2 className="text-lg font-bold mb-4">
               {questions[currentQuestion] ? (

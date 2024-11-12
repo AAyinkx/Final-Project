@@ -41,6 +41,19 @@
 --   PRIMARY KEY (clerk_id, likes_id)
 -- )
 
+-- CREATE TABLE IF NOT EXISTS quiz_history (
+--   id SERIAL PRIMARY KEY,
+--   quiz_topic TEXT,
+--   correct_answers INTEGER,
+--   number_of_questions INTEGER,
+--   posted_at TIMESTAMP DEFAULT NOW()
+-- )
+
+-- CREATE TABLE IF NOT EXISTS users_quiz_history(
+--   clerk_id TEXT REFERENCES users(clerk_id) ON DELETE CASCADE,
+--   quiz_history_id INTEGER REFERENCES quiz_history(id) ON DELETE CASCADE,
+--   PRIMARY KEY (clerk_id, quiz_history_id)
+-- )
 
 
     `SELECT * 

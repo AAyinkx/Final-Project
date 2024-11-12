@@ -35,12 +35,12 @@ export default function QuizCategoriesPage() {
         score={score}
         totalQuestions={questions.length}
         onRestart={restartQuiz}
+        userId={user.id}
       />
     );
   }
   return (
     <>
-
       <h1>quiz categories {user.id}</h1>
       <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-green-300">
         <h1 className="mb-6 font-bold text-3xl">The Mind Match Quiz</h1>
