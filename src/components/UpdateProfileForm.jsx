@@ -51,44 +51,58 @@ export default function UpdateProfileForm({
       <div className="flex flex-row items-center justify-center">
         <form
           action={handleUpdate}
-          className="flex flex-col items-center bg-green-50 w-80 my-8 border-4 border-green-700 p-4 rounded-lg"
+          className="flex flex-col items-center bg-gradient-to-b from-gray-100 to-gray-200 w-[28rem] my-8 border border-blue-300 p-6 rounded-lg shadow-lg"
         >
-          <label htmlFor="date_of_birth">date of birth </label>
+          <label
+            htmlFor="date_of_birth"
+            className="self-start text-gray-700 font-bold p-3"
+          >
+            Date of birth{" "}
+          </label>
           <input
             type="date"
             name="date_of_birth"
             id="date_of_birth"
             defaultValue={date_of_birth}
             required
-            className="text-orange-600 p-1"
+            className="input input-bordered input-primary w-full max-w-xs bg-white"
           />
 
-          <label htmlFor="bio">Bio </label>
+          <label
+            htmlFor="bio"
+            className="self-start text-gray-700 font-bold p-3"
+          >
+            Bio{" "}
+          </label>
           <textarea
             type="text"
             name="bio"
-            placeholder="enter your bio here..."
+            placeholder="Enter your bio here..."
             id="bio"
             defaultValue={bio}
             required
-            className="text-orange-600 p-1"
+            className="input input-bordered input-primary w-full max-w-xs bg-white"
           />
 
-          <label htmlFor="image_src">post Image link </label>
+          <label
+            htmlFor="image_src"
+            className="self-start text-gray-700 font-bold p-3"
+          >
+            Post Image link{" "}
+          </label>
           <input
             type="text"
             name="image_src"
-            placeholder="enter an image link"
+            placeholder="Enter an image link"
             id="image_src"
             defaultValue={image_src}
-            className="text-orange-600 p-1"
+            className="input input-bordered input-primary w-full max-w-xs bg-white"
           />
           <button
+            className=" w-full btn glass text-white font-bold bg-sky-600 p-3 mt-4"
             type="submit post"
-            className="border-green-800 border-4 bg-green-100 text-zinc-900 p-2 m-4 hover:bg-green-800 hover:text-green-50
-          transition duration-300 ease-in-out rounded-lg"
           >
-            update profile
+            Update profile
           </button>
         </form>
       </div>
