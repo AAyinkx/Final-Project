@@ -1,0 +1,22 @@
+{
+  "categories": [
+    {
+      "id": 9,
+      "name": "General Knowledge"
+    },
+
+    {
+      "id": 17,
+      "name": "Science & Nature"
+    },
+    {
+      "id": 18,
+      "name": "Science: Computers"
+    },
+
+    {
+      "id": 21,
+      "name": "Sports"
+    }
+  ]
+}

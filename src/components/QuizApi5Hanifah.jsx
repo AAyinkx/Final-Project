@@ -6,12 +6,13 @@ import { randomShuffle } from "@/utils/randomShuffle";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import QuizResults from "./QuizResults";
-export default function QuizApi5Hanifah() {
+export default function QuizApi5Hanifah({ category }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   // const [shuffledQuestions, setShuffledQuestion] = useState([]);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
   const numberOfQuestions = 5;
+
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
 
@@ -19,14 +20,14 @@ export default function QuizApi5Hanifah() {
   useEffect(() => {
     async function getQuestions() {
       const response = await fetch(
-        `http://localhost:3000/api/quiz/?q=${numberOfQuestions}`
+        `http://localhost:3000/api/quiz/?q=${numberOfQuestions}&c=${category}`
       );
       const data = await response.json();
 
       setQuestions(data.results);
     }
     getQuestions();
-  }, []);
+  }, [category]);
 
   //Restart the Quiz
   const restartQuiz = () => {
@@ -74,6 +75,7 @@ export default function QuizApi5Hanifah() {
     <div className="max-w-xl w-full bg-white rounded-lg shadow-md p-6">
       {showScore ? (
         <QuizResults
+          categoryId={category}
           userId={user.id}
           score={score}
           number_of_questions={questions.length}
