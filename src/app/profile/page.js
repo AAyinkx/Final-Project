@@ -65,7 +65,7 @@ export default async function profilePage() {
       </div> */}
 
       <div className="my-10 text-center">
-        <h1 className="text-5xl font-extrabold text-sky-400 drop-shadow-lg">
+        <h1 className="text-5xl font-extrabold bg-gradient-to-r from-blue-500 to-sky-300 text-transparent bg-clip-text drop-shadow-lg">
           {" "}
           My Profile Page{" "}
         </h1>
@@ -157,10 +157,10 @@ export default async function profilePage() {
           You are following&#58;
         </h2>
         {/* </div> */}
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className="flex flex-wrap justify-center text-center gap-6">
           {myFollows.map((user) => (
             <div
-              className="bg-white rounded-lg shadow-md p-4 max-w-sm w-full border border-sky-500 hover:shadow-lg transition-shadow duration-300"
+              className="p-[2px] bg-gradient-to-r from-green-300 via-blue-300 to-blue-500 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 max-w-sm w-full h-12"
               key={user.id}
             >
               <Link
