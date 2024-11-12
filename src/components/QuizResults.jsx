@@ -1,7 +1,8 @@
 "use client";
 import { useEffect } from "react";
-import quizOptions from "@/lib/quizCategories.json";
+import quizOptions from "@/lib/quizCategoriesAll.json";
 import Link from "next/link";
+
 export default function QuizResults({
   userId,
   score,
@@ -55,6 +56,9 @@ export default function QuizResults({
 
         <span>
           <Link
+            onClick={() => {
+              handleResults(score, userId, number_of_questions, categoryName);
+            }}
             className="py-2 px-4btn btn btn-info ml-2"
             href="/quiz-categories"
           >
