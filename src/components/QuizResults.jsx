@@ -1,16 +1,29 @@
 "use client";
 import { useEffect } from "react";
+import quizOptions from "@/lib/quizCategories.json";
+import Link from "next/link";
 export default function QuizResults({
   userId,
   score,
   number_of_questions,
   restartQuiz,
+  categoryId,
 }) {
-  function handleResults(score, userId, number_of_questions) {
+  const wrangledCategory = quizOptions.categories;
+  let categoryName;
+  for (const c of wrangledCategory) {
+    if (c.id == categoryId) {
+      categoryName = c.name;
+      // Exit the loop once the match is found
+    }
+  }
+
+  function handleResults(score, userId, number_of_questions, categoryName) {
     const quizData = {
       userId: userId,
       score: score,
       number_of_questions: number_of_questions,
+      category: categoryName,
     };
 
     const response = fetch("http://localhost:3000/api/add-quiz-results", {
@@ -21,16 +34,7 @@ export default function QuizResults({
       body: JSON.stringify({ quizData }),
     });
     return response;
-    // const data = await response.json();
-    // if (success) {
-    //   console.log("Data submitted successfully!");
-    // } else {
-    //   // console.log(`Error: ${data.error}`);
-    // }
   }
-  // handleResults(score, userId, number_of_questions);
-
-  // handleResults(score, userId, number_of_questions);
 
   return (
     <>
@@ -43,17 +47,20 @@ export default function QuizResults({
           className="py-2 px-4btn btn btn-info mr-2"
           onClick={() => {
             restartQuiz();
-            handleResults(score, userId, number_of_questions);
+            handleResults(score, userId, number_of_questions, categoryName);
           }}
         >
           Try Again
         </button>
 
-        {/* <span>
-            <Link className="py-2 px-4btn btn btn-info ml-2" href="/">
-              Return home
-            </Link>
-          </span> */}
+        <span>
+          <Link
+            className="py-2 px-4btn btn btn-info ml-2"
+            href="/quiz-categories"
+          >
+            Return to Categories
+          </Link>
+        </span>
       </div>
     </>
   );

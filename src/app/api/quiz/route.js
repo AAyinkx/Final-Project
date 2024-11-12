@@ -2,17 +2,26 @@ export async function GET(req) {
   // const numberOfQuestions = 20;
   const url = await req.nextUrl.searchParams;
   const qry = url.get("q");
+  const category = url.get("c");
   // const { numberOfQuestions } = request.body;
-  const category = 21;
-  const difficulty = "easy";
+
   //The url of the api is very easy to manipulate so we can easy adjust for user customisation later
-  const response = await fetch(
-    `https://opentdb.com/api.php?amount=${qry}&category=${category}&difficulty=${difficulty}&type=multiple`
+  let response = await fetch(
+    `https://opentdb.com/api.php?amount=${qry}&category=${category}&type=multiple`
   );
-  const data = await response.json();
-  const wrangledData = data;
-  const length = wrangledData.length;
+  let data = await response.json();
+  const length = data.length;
   console.log("length of response", length);
-  console.log("array", JSON.stringify(wrangledData).length);
-  return new Response(JSON.stringify(wrangledData));
+  console.log("array", JSON.stringify(data).length);
+  if (data.response_code != 0) {
+    response = await fetch(
+      `https://opentdb.com/api.php?amount=${qry}&category=${category}&type=multiple`
+    );
+    data = await response.json();
+  }
+
+  return new Response(JSON.stringify(data));
+
+  //Check if data is an empty array
+  //If it is empty, do a new fetch
 }
