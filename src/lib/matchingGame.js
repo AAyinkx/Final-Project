@@ -9,15 +9,15 @@ export const preMatchedData = [
 export const preMatchedCodeData = [
   {
     question: "How do you create a responsive layout in CSS?",
-    answer: "media queries.",
+    answer: "Media Queries",
   },
   {
     question: "What is the purpose of the useEffect hook in React?",
-    answer: "allows you to run code when components mount, update, or unmount.",
+    answer: "Allows you to run code when components mount, update, or unmount",
   },
   {
     question: "How do you make an API call in JavaScript using Fetch?",
-    answer: "using the Fetch API",
+    answer: "Using the Fetch API",
   },
   {
     question: "What is the purpose of the super keyword in JavaScript classes",
@@ -27,7 +27,7 @@ export const preMatchedCodeData = [
   {
     question:
       "What is the purpose of the async and await keywords in JavaScript?",
-    answer: "to work with asynchronous code",
+    answer: "To work with asynchronous code",
   },
 ];
 

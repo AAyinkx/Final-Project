@@ -7,7 +7,7 @@ export default function FollowButton({ handleFollow, follower, followed }) {
         onClick={() => {
           handleFollow(follower, followed);
         }}
-        className="hover:scale-105 ease-in-out transition-transform duration-300 font-bold bg-blue-800 w-fit p-0.5 bg-gradient-to-r from-green-200 to-green-400 px-6 py-3 border-2
+        className="hover:scale-105 ease-in-out transition-transform duration-300 font-bold bg-blue-800 w-fit p-0.5 bg-gradient-to-r from-green-200 to-green-400 px-6 py-3 m-2 border-2
             rounded-lg "
       >
         Follow <i className="fa-solid fa-user-plus"></i>

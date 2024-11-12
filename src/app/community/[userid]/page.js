@@ -100,14 +100,14 @@ VALUES ('${followerId}','${followedId}')`);
 
   return (
     <>
-      <h1>welcome to {myParams.username} page</h1>
-      <div className="flex justify-center">
+      <div className=" mt-12 flex justify-center">
         <Link
-          className="transition-transform duration-300 transform hover:scale-105 text-white font-semibold bg-gradient-to-r from-blue-600 to-green-600 px-6 py-3 rounded-full shadow-lg"
+          className="transition-transform duration-300 transform hover:scale-105 text-white font-semibold bg-gradient-to-r from-blue-600 to-green-600 px-6 py-3 m-2 rounded-full shadow-lg"
           href="/community"
         >
-          go back ...
+          Go Back ...
         </Link>
+
         <FollowButton
           handleFollow={handleFollow}
           follower={follower}

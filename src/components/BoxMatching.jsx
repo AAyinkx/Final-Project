@@ -25,15 +25,15 @@ export default function BoxMatching() {
   const win = pairedData.length === preMatchedData.length;
   return (
     <>
-      {win && <h2 className="absolute text-green-500">You Win!</h2>}
+      {win && <h2 className="relative text-xl text-black">You Win!</h2>}
       <div className="flex gap-5 mt-10">
         <div className="flex flex-col gap-2">
           {preMatchedData.map((match, index) => (
             <button
               className={`
-            rounded px-4 py-2 text-white font-bold
+            rounded px-4 py-2 w-[30vw] h-[10vh] text-white font-bold
             hover:bg-gray-700 hover:scale-105 transition ease-in duration-300
-            ${isMatched(match) ? "bg-green-500" : "bg-gray-500"}
+            ${isMatched(match) ? "bg-blue-600" : "bg-gray-500"}
             ${selectedMatch === match && "bg-gray-900"}
             `}
               key={index}
@@ -47,13 +47,13 @@ export default function BoxMatching() {
           {shuffledMatchData.map((match, index) => (
             <button
               className={`
-            bg-gray-500 rounded px-4 py-2 text-white font-bold
+            bg-gray-500 rounded px-4 py-2 w-[30vw] h-[10vh] text-white font-bold
             ${
               selectedMatch !== null
                 ? "hover:bg-gray-700 hover:scale-105 transition ease-in duration-300"
-                : "cursor-not-allowed"
+                : ""
             }
-            ${isMatched(match) ? "bg-green-500" : "bg-gray-500"}
+            ${isMatched(match) ? "bg-blue-600" : "bg-gray-500"}
             `}
               key={index}
               disabled={selectedMatch === null}
