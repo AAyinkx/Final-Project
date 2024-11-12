@@ -17,14 +17,18 @@ export default async function LikedPosts() {
   return (
     <>
       <div>
-        <h1 className={`relative mt-12 mb-7 text-5xl`}>Liked Posts</h1>
+        <h1
+          className={`text-5xl text-center font-extrabold bg-gradient-to-r from-green-400 to-blue-400 text-transparent bg-clip-text drop-shadow-lg mb-6`}
+        >
+          Liked Posts
+        </h1>
         <div className="flex flex-wrap justify-center gap-6">
           {WrangledUsersLikes.reverse().map((post) => (
             <div
-              className="bg-white rounded-lg shadow-md p-4 max-w-sm w-full border border-purple-300 hover:shadow-lg transition-shadow duration-300"
+              className="bg-white rounded-lg shadow-md p-4 max-w-sm w-full border-2 border-blue-300 hover:shadow-xl transition-shadow duration-300"
               key={post.id}
             >
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-black font-bold">
                 Date&#58; {dateConverter(post.posted_at)}
               </p>
               <div>
@@ -35,12 +39,12 @@ export default async function LikedPosts() {
                   quality={100}
                   width={100}
                   height={100}
-                  className="rounded-lg border-2 border-yellow-300 my-2"
+                  className="rounded-lg border-2 border-blue-200 my-2"
                 />
               </div>
 
               <Link
-                className="text-purple-600 mt-2 font-bold hover:scale-110 ease-in-out transition-transform duration-300 z-10 inline-block p-1"
+                className="text-blue-900 mt-2 font-bold hover:scale-105 ease-in-out transition-transform duration-300 z-10 inline-block p-1"
                 href={`/profile/${post.id}`}
               >
                 Topic&#58; {post.title}
