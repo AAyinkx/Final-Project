@@ -7,6 +7,7 @@ import Link from "next/link";
 import { dateConverter } from "@/utils/handyFunctions";
 import FollowButton from "@/components/FollowButton";
 import ThumbButton from "@/components/ThumbButton";
+import QuizHistory from "@/components/QuizHistory";
 export default async function UserPage({ params }) {
   const date = new Date();
   const myParams = await params;
@@ -176,6 +177,7 @@ VALUES ('${followerId}','${followedId}')`);
           </div>
         ))}
       </div>
+      <QuizHistory userId={userId} />
     </>
   );
 }
