@@ -10,7 +10,7 @@ export default function CodingMatching() {
   const [selectedMatch, setSelectedMatch] = useState(null);
 
   useEffect(() => {
-    setShuffledMatchData(shuffleArray(preMatchedCodeData));
+    setShuffledMatchData(shuffleArray(shuffleArray(preMatchedCodeData)));
   }, []);
 
   function handleCodeClick(match) {
@@ -34,7 +34,7 @@ export default function CodingMatching() {
               className={`
             rounded px-4 py-2 w-[30vw] h-[12vh] text-white font-bold
             hover:bg-gray-700 hover:scale-105 transition ease-in duration-300
-            ${isMatched(match) ? "bg-blue-600" : "bg-gray-500"}
+            ${isMatched(match) ? "bg-green-950" : "bg-gray-500"}
             ${selectedMatch === match && "bg-gray-900"}
             `}
               key={index}
@@ -52,9 +52,9 @@ export default function CodingMatching() {
             ${
               selectedMatch !== null
                 ? "hover:bg-gray-700 hover:scale-105 transition ease-in duration-300"
-                : ""
+                : "cursor-default"
             }
-            ${isMatched(match) ? "bg-blue-600" : "bg-gray-500"}
+            ${isMatched(match) ? "bg-green-950" : "bg-gray-500"}
             `}
               key={index}
               disabled={selectedMatch === null}

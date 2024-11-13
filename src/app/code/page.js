@@ -9,7 +9,7 @@ export default function MatchingChallengesPage() {
         <div className="max-w-xs w-full text-center bg-sky-500 hover:bg-sky-600 bg-opacity-60 p-6 rounded-lg shadow-lg border-2 transform transition-transform hover:scale-105 hover:shadow-xl">
           <Link
             className="block text-2xl font-bold text-blue-800 transition duration-300 "
-            href={`/code/coding-challenge`}
+            href="/code/cities"
           >
             Cities
           </Link>
@@ -17,7 +17,7 @@ export default function MatchingChallengesPage() {
         <div className="max-w-xs w-full text-center bg-sky-500 hover:bg-sky-600 bg-opacity-60 p-6 rounded-lg shadow-lg border-2 transform transition-transform hover:scale-105 hover:shadow-xl">
           <Link
             className="block text-2xl font-bold text-blue-800 transition duration-300 "
-            href={`/code/coding-challenge`}
+            href="code/coding-challenge"
           >
             Coding Challenge
           </Link>

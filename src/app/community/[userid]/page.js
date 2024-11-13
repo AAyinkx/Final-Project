@@ -102,10 +102,6 @@ VALUES ('${followerId}','${followedId}')`);
   const following = await db.query(
     `SELECT * 
     FROM follows 
-    JOIN posts 
-    ON posts.clerk_id = follows.followed_clerk_id
-    JOIN users 
-    ON users.clerk_id = follows.followed_clerk_id
     WHERE follows.following_clerk_id ='${follower}' AND follows.followed_clerk_id ='${followed}'`
   );
   let isfollowing = false;

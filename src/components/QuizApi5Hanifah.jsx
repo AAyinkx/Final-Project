@@ -21,7 +21,7 @@ export default function QuizApi5Hanifah({ category }) {
   useEffect(() => {
     async function getQuestions() {
       const response = await fetch(
-        `http://localhost:3000/api/quiz/?q=${numberOfQuestions}&c=${category}`
+        `https://mind-match-virid.vercel.app/api/quiz/?q=${numberOfQuestions}&c=${category}`
       );
       const data = await response.json();
 
