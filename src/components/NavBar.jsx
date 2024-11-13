@@ -55,7 +55,7 @@ export default function NavBar() {
               <li>
                 <details>
                   <summary>
-                    <Link href="/code">Matching Activity</Link>
+                    <Link href="/code">Matching Activities</Link>
                   </summary>
 
                   <ul className="p-2 ">
@@ -109,7 +109,7 @@ export default function NavBar() {
             <li>
               <details>
                 <summary>
-                  <Link href="/code">Matching Activity</Link>
+                  <Link href="/code">Matching Activities</Link>
                 </summary>
 
                 <ul className="p-2 w-[15vw] z-10">

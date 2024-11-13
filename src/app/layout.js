@@ -5,16 +5,11 @@ import { ClerkProvider, SignedIn, UserButton } from "@clerk/nextjs";
 import { neobrutalism } from "@clerk/themes";
 import NavBar from "@/components/NavBar";
 import Script from "next/script";
+import { Baloo_Bhaina_2 } from "next/font/google";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+export const baloo = Baloo_Bhaina_2({
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata = {
@@ -31,9 +26,7 @@ export default function RootLayout({ children }) {
       }}
     >
       <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
-        >
+        <body className={`${baloo.className} antialiased min-h-screen`}>
           <div className="min-h-screen">
             <Script
               src="https://kit.fontawesome.com/5d4d1c054f.js"

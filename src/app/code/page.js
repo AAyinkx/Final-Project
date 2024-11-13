@@ -3,7 +3,7 @@ export default function MatchingChallengesPage() {
   return (
     <>
       <h1 className="text-5xl text-center font-extrabold bg-gradient-to-r from-green-500 to-blue-500 text-transparent bg-clip-text drop-shadow-lg mb-6 py-5">
-        Matching activities
+        Matching Activities
       </h1>
       <div className="flex flex-row gap-4 m-4 flex-wrap justify-center ">
         <div className="max-w-xs w-full bg-blue-50 bg-opacity-60 p-6 rounded-lg shadow-lg border-2 border-blue-300 transform transition-transform hover:scale-105 hover:shadow-xl">
