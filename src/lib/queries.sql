@@ -34,6 +34,12 @@
   
 -- );
 
+-- CREATE TABLE IF NOT EXISTS likes(
+--   id SERIAL PRIMARY KEY,
+--   post_id INTEGER REFERENCES posts(id) ON DELETE CASCADE,
+--   likes INTEGER DEFAULT 0
+-- )
+
 -- 
 -- CREATE TABLE IF NOT EXISTS user_liked_posts(
 --   clerk_id TEXT REFERENCES users(clerk_id) ON DELETE CASCADE,
