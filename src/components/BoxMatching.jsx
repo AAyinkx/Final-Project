@@ -30,7 +30,7 @@ export default function BoxMatching() {
         <div className="flex flex-col gap-2">
           {preMatchedData.map((match, index) => (
             <button
-              className={`
+              className={` flex flex-col
             rounded px-4 py-2 w-[30vw] h-[10vh] text-white font-bold
             hover:bg-gray-700 hover:scale-105 transition ease-in duration-300
             ${isMatched(match) ? "bg-green-950" : "bg-gray-500"}
@@ -46,7 +46,7 @@ export default function BoxMatching() {
         <div className="flex flex-col gap-2">
           {shuffledMatchData.map((match, index) => (
             <button
-              className={`
+              className={`flex flex-col
             bg-gray-500 rounded px-4 py-2 w-[30vw] h-[10vh] text-white font-bold
             ${
               selectedMatch !== null
