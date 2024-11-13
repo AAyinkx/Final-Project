@@ -15,7 +15,7 @@ export const useQuiz = () => {
   const fetchQuestions = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/quiz/?q=${numberOfQuestions}`
+        `https://mind-match-virid.vercel.app/api/quiz/?q=${numberOfQuestions}`
       );
       const data = await response.json();
       if (data.response_code === 0) {

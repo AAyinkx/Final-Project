@@ -27,13 +27,16 @@ export default function QuizResults({
       category: categoryName,
     };
 
-    const response = fetch("http://localhost:3000/api/add-quiz-results", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ quizData }),
-    });
+    const response = fetch(
+      "https://mind-match-virid.vercel.app/api/add-quiz-results",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ quizData }),
+      }
+    );
     return response;
   }
 
