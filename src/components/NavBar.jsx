@@ -29,12 +29,17 @@ export default function NavBar() {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <Link href="/quiz-categories">Quiz categories</Link>
+                <Link href="/quiz-categories">
+                  <i className="fa-regular fa-circle-question"></i> Quiz
+                  categories
+                </Link>
               </li>
               <li>
                 <details>
                   <summary>
-                    <Link href="/profile">Profile</Link>
+                    <Link href="/profile">
+                      <i className="fa-regular fa-user"></i> Profile
+                    </Link>
                   </summary>
 
                   <ul className="p-2">
@@ -55,7 +60,10 @@ export default function NavBar() {
               <li>
                 <details>
                   <summary>
-                    <Link href="/code">Matching Activities</Link>
+                    <Link href="/code">
+                      <i className="fa-regular fa-object-ungroup"></i> Matching
+                      Activities
+                    </Link>
                   </summary>
 
                   <ul className="p-2 ">
@@ -71,7 +79,9 @@ export default function NavBar() {
                 </details>
               </li>
               <li>
-                <Link href="/community">Community</Link>
+                <Link href="/community">
+                  <i className="fa-regular fa-message"></i> Community
+                </Link>
               </li>
             </ul>
           </div>
@@ -83,12 +93,17 @@ export default function NavBar() {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link href="/quiz-categories">Quiz categories</Link>
+              <Link href="/quiz-categories">
+                <i className="fa-regular fa-circle-question"></i> Quiz
+                categories
+              </Link>
             </li>
             <li>
               <details>
                 <summary>
-                  <Link href="/profile">Profile</Link>
+                  <Link href="/profile">
+                    <i className="fa-regular fa-user"></i> Profile
+                  </Link>
                 </summary>
 
                 <ul className="p-2 w-[10vw]  z-10">
@@ -109,7 +124,10 @@ export default function NavBar() {
             <li>
               <details>
                 <summary>
-                  <Link href="/code">Matching Activities</Link>
+                  <Link href="/code">
+                    <i className="fa-regular fa-object-ungroup"></i> Matching
+                    Activities
+                  </Link>
                 </summary>
 
                 <ul className="p-2 w-[15vw] z-10">
@@ -123,7 +141,9 @@ export default function NavBar() {
               </details>
             </li>
             <li>
-              <Link href="/community">Community</Link>
+              <Link href="/community">
+                <i className="fa-regular fa-message"></i> Community
+              </Link>
             </li>
           </ul>
         </div>
