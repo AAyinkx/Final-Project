@@ -83,6 +83,11 @@ export default function NavBar() {
                   <i className="fa-regular fa-message"></i> Community
                 </Link>
               </li>
+              <li>
+                <Link href="/quiz-leaderboard">
+                  <i className="fa-solid fa-medal"></i> Leaderboard
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -143,6 +148,11 @@ export default function NavBar() {
             <li>
               <Link href="/community">
                 <i className="fa-regular fa-message"></i> Community
+              </Link>
+            </li>
+            <li>
+              <Link href="/quiz-leaderboard">
+                <i className="fa-solid fa-medal"></i> Leaderboard
               </Link>
             </li>
           </ul>

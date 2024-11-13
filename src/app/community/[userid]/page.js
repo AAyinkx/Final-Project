@@ -103,10 +103,10 @@ VALUES ('${followerId}','${followedId}')`);
     <>
       <div className=" mt-12 flex justify-center">
         <Link
-          className="transition-transform duration-300 transform hover:scale-105 text-white font-semibold bg-gradient-to-r from-blue-600 to-green-600 px-6 py-3 m-2 rounded-full shadow-lg"
+          className="transition-transform duration-300 transform hover:scale-105 text-white font-semibold bg-gradient-to-r from-blue-600 to-green-600 px-6 py-3 m-2 rounded-full shadow-lg place-content-center"
           href="/community"
         >
-          Go Back ...
+          Go Back
         </Link>
 
         <FollowButton
@@ -177,7 +177,13 @@ VALUES ('${followerId}','${followedId}')`);
           </div>
         ))}
       </div>
-      <QuizHistory userId={userId} />
+      <section className="mt-10 flex flex-col items-center justify-center">
+        <h2 className="text-4xl text-center font-extrabold bg-gradient-to-r from-green-400 to-blue-400 text-transparent bg-clip-text drop-shadow-lg mb-6">
+          Your Quiz History
+        </h2>
+
+        <QuizHistory userId={userId} />
+      </section>
     </>
   );
 }

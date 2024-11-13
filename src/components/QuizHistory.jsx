@@ -15,11 +15,10 @@ WHERE users.clerk_id = '${userId}';`
   console.log(myQuizScores);
   return (
     <>
-      <div className="overflow-x-auto w-96 max-h-48">
-        <table className="table table-xs table-pin-rows table-pin-cols">
+      <div className=" overflow-x-auto min-w-80 w-[40vw] max-h-[60vh] rounded-md border-2 border-blue-500">
+        <table className="table table-lg table-pin-rows table-pin-cols ">
           <thead>
-            <tr>
-              <th></th>
+            <tr className="text-lg font-bold text-blue-500">
               <th>Quiz Category</th>
               <th>Score</th>
               <th>Length of quiz</th>
@@ -29,7 +28,6 @@ WHERE users.clerk_id = '${userId}';`
           <tbody>
             {myQuizScores.map((quiz, index) => (
               <tr key={quiz.id}>
-                <th>{index}</th>
                 <td>{quiz.quiz_topic}</td>
                 <td>
                   {(quiz.correct_answers / quiz.number_of_questions) * 100}&#37;

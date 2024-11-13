@@ -17,12 +17,11 @@ LIMIT 10;`
   //   console.log(myQuizScores);
   return (
     <>
-      <h1>leaderboard</h1>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead>
-            <tr>
+            <tr className="text-black text-2xl font-bold">
               <th>Name</th>
               <th>Category</th>
               <th>Score</th>

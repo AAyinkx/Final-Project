@@ -194,7 +194,13 @@ export default async function profilePage() {
           ))}
         </div>
       </section>
-      <QuizHistory userId={user.id} />
+      <section className="mt-10 flex flex-col items-center justify-center">
+        <h2 className="text-4xl text-center font-extrabold bg-gradient-to-r from-green-400 to-blue-400 text-transparent bg-clip-text drop-shadow-lg mb-6">
+          Your Quiz History
+        </h2>
+
+        <QuizHistory userId={user.id} />
+      </section>
     </>
   );
 }
