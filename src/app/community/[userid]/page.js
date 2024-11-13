@@ -181,28 +181,30 @@ WHERE users.clerk_id = '${userId}';`
       <div className="flex flex-row gap-4 m-4 flex-wrap justify-center ">
         {postData.map(async (post) => (
           <div
-            className="bg-white font-bold rounded-lg shadow-md p-4 max-w-sm w-full border-4 border-blue-300 hover:shadow-xl transition-shadow duration-300"
+            className="flex flex-row items-center justify-center bg-white font-bold rounded-lg shadow-md p-4 max-w-sm w-full border-4 border-blue-300 hover:shadow-xl transition-shadow duration-300"
             key={post.id}
           >
-            <p>Date&#58; {dateConverter(post.posted_at)}</p>
-            <div>
-              <Image
-                alt={post.title}
-                src={post.image_src}
-                // objectFit="cover"
-                quality={100}
-                width={100}
-                height={100}
-                className="rounded-lg border-2 border-blue-200 my-2"
-              />
-            </div>
-            <Link
-              className="text-blue-900 mt-2 font-bold hover:scale-105 ease-in-out transition-transform duration-300 z-10 inline-block p-1"
-              href={`/community/${userId}/${post.id}`}
-            >
-              Title&#58; {post.title}
-            </Link>
-            <br />
+            <section>
+              <p>Date&#58; {dateConverter(post.posted_at)}</p>
+              <div>
+                <Image
+                  alt={post.title}
+                  src={post.image_src}
+                  // objectFit="cover"
+                  quality={100}
+                  width={100}
+                  height={100}
+                  className="rounded-lg border-2 border-blue-200 my-2"
+                />
+              </div>
+              <Link
+                className="text-blue-900 mt-2 font-bold hover:scale-105 ease-in-out transition-transform duration-300 z-10 inline-block p-1"
+                href={`/community/${userId}/${post.id}`}
+              >
+                Title&#58; {post.title}
+              </Link>
+              <br />
+            </section>
             <div className="relative">
               <ThumbButton
                 id={post.id}
