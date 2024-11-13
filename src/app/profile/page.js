@@ -58,7 +58,20 @@ export default async function profilePage() {
   );
   const myExtraData = extraData.rows;
   // console.log(myExtraData[0].id);
-
+  const quizScores = await db.query(
+    `SELECT * 
+FROM users 
+JOIN users_quiz_history
+ON users.clerk_id = users_quiz_history.clerk_id
+JOIN quiz_history
+ON quiz_history.id= users_quiz_history.quiz_history_id
+WHERE users.clerk_id = '${user.id}';`
+  );
+  let quizHistory = false;
+  if (quizScores.rows[0]) {
+    quizHistory = true;
+  }
+  console.log("This is the thing" + quizHistory);
   return (
     <>
       {/* <div className="my-10 flex flex-row items-center justify-center max-w-xs min-w-72 border-2 border-green-700 p-1 rounded-lg bg-red-50">
@@ -198,8 +211,17 @@ export default async function profilePage() {
         <h2 className="text-4xl text-center font-extrabold bg-gradient-to-r from-green-400 to-blue-400 text-transparent bg-clip-text drop-shadow-lg mb-6">
           Your Quiz History
         </h2>
-
-        <QuizHistory userId={user.id} />
+        {quizHistory ? (
+          <QuizHistory userId={user.id} />
+        ) : (
+          <Link
+            href="/quiz-categories"
+            className="hover:scale-105 ease-in-out transition-transform duration-300 font-bold bg-blue-800 w-fit p-0.5 bg-gradient-to-r from-green-200 to-green-400 px-6 py-3 m-2 border-2
+        rounded-lg "
+          >
+            Take your first quiz <i className="fa-solid fa-gamepad"></i>
+          </Link>
+        )}
       </section>
     </>
   );

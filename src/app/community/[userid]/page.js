@@ -98,6 +98,34 @@ VALUES ('${followerId}','${followedId}')`);
       return 0;
     }
   }
+  //Checks if user is already following this person
+  const following = await db.query(
+    `SELECT * 
+    FROM follows 
+    JOIN posts 
+    ON posts.clerk_id = follows.followed_clerk_id
+    JOIN users 
+    ON users.clerk_id = follows.followed_clerk_id
+    WHERE follows.following_clerk_id ='${follower}' AND follows.followed_clerk_id ='${followed}'`
+  );
+  let isfollowing = false;
+  if (following.rows[0]) {
+    isfollowing = true;
+  }
+  //Checks if the user has any quiz history
+  const quizScores = await db.query(
+    `SELECT * 
+FROM users 
+JOIN users_quiz_history
+ON users.clerk_id = users_quiz_history.clerk_id
+JOIN quiz_history
+ON quiz_history.id= users_quiz_history.quiz_history_id
+WHERE users.clerk_id = '${userId}';`
+  );
+  let quizHistory = false;
+  if (quizScores.rows[0]) {
+    quizHistory = true;
+  }
 
   return (
     <>
@@ -108,12 +136,20 @@ VALUES ('${followerId}','${followedId}')`);
         >
           Go Back
         </Link>
-
-        <FollowButton
-          handleFollow={handleFollow}
-          follower={follower}
-          followed={followed}
-        />
+        {isfollowing ? (
+          <div
+            className="font-bold bg-blue-800 w-fit p-0.5 bg-gradient-to-r from-green-200 to-green-400 px-6 py-3 m-2 border-2
+          rounded-lg "
+          >
+            You are already following {data.username}
+          </div>
+        ) : (
+          <FollowButton
+            handleFollow={handleFollow}
+            follower={follower}
+            followed={followed}
+          />
+        )}
       </div>
 
       <section className="flex flex-col justify-center items-center">
@@ -179,10 +215,20 @@ VALUES ('${followerId}','${followedId}')`);
       </div>
       <section className="mt-10 flex flex-col items-center justify-center">
         <h2 className="text-4xl text-center font-extrabold bg-gradient-to-r from-green-400 to-blue-400 text-transparent bg-clip-text drop-shadow-lg mb-6">
-          Your Quiz History
+          {data.username}&apos;s Quiz History
         </h2>
 
-        <QuizHistory userId={userId} />
+        {quizHistory ? (
+          <QuizHistory userId={userId} />
+        ) : (
+          <div
+            className="font-bold bg-blue-800 w-fit p-0.5 bg-gradient-to-r from-green-200 to-green-400 px-6 py-3 m-2 border-2
+        rounded-lg "
+          >
+            {data.username} hasn&apos;t taken any quizzes<span> </span>
+            <i className="fa-regular fa-face-frown"></i>
+          </div>
+        )}
       </section>
     </>
   );
