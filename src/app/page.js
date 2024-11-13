@@ -11,15 +11,15 @@ export default function HomePage() {
       <div className="top-2 right-5">
         <SignedOut>
           <SignInButton
-            className={` hover:text-purple-700 text-3xl px-1 py-2 `}
+            className="w-[20vw] mt-12 mb-6 btn content-center bg-red-400 hover:bg-red-700 text-4xl p-8 font-bold text-black"
             mode="modal"
           >
             Sign In
           </SignInButton>
           <br />
           <SignUpButton
+            className="w-[20vw] btn content-center bg-orange-400 hover:bg-orange-700 text-4xl p-8   font-bold text-black"
             mode="modal"
-            className={`hover:text-purple-700 text-3xl px-1  py-2`}
           >
             Sign Up
           </SignUpButton>

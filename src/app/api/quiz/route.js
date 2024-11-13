@@ -8,6 +8,7 @@ export async function GET(req) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
   //The url of the api is very easy to manipulate so we can easy adjust for user customisation later
+
   let response = await fetch(
     `https://opentdb.com/api.php?amount=${qry}&category=${category}&type=multiple`
   );
