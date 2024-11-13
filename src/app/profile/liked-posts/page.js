@@ -4,6 +4,7 @@ import { dateConverter } from "@/utils/handyFunctions";
 import Image from "next/image";
 
 import Link from "next/link";
+import ImageComponentPost from "@/components/ImageComponentPost";
 export default async function LikedPosts() {
   const user = await currentUser();
   console.log(user.id);
@@ -18,7 +19,7 @@ export default async function LikedPosts() {
     <>
       <div>
         <h1
-          className={`text-5xl text-center font-extrabold bg-gradient-to-r from-green-400 to-blue-400 text-transparent bg-clip-text drop-shadow-lg mb-6`}
+          className={`text-5xl text-center font-extrabold bg-gradient-to-r from-green-400 to-blue-400 text-transparent bg-clip-text drop-shadow-lg mb-6 mt-6`}
         >
           Liked Posts
         </h1>
@@ -32,7 +33,7 @@ export default async function LikedPosts() {
                 Date&#58; {dateConverter(post.posted_at)}
               </p>
               <div>
-                <Image
+                <ImageComponentPost
                   alt={post.title}
                   src={post.image_src}
                   // objectFit="cover"
@@ -41,6 +42,15 @@ export default async function LikedPosts() {
                   height={100}
                   className="rounded-lg border-2 border-blue-200 my-2"
                 />
+                {/* <Image
+                  alt={post.title}
+                  src={post.image_src}
+                  // objectFit="cover"
+                  quality={100}
+                  width={100}
+                  height={100}
+                  className="rounded-lg border-2 border-blue-200 my-2"
+                /> */}
               </div>
 
               <Link

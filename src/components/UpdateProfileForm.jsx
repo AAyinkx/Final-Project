@@ -68,10 +68,7 @@ export default function UpdateProfileForm({
             className="input input-bordered input-primary w-full max-w-xs bg-white"
           />
 
-          <label
-            htmlFor="bio"
-            className="self-start text-gray-700 font-bold p-3"
-          >
+          <label htmlFor="bio" className=" text-gray-700 font-bold p-3">
             Bio{" "}
           </label>
           <textarea
@@ -81,13 +78,10 @@ export default function UpdateProfileForm({
             id="bio"
             defaultValue={bio}
             required
-            className="input input-bordered input-primary w-full max-w-xs bg-white"
+            className="input input-bordered input-primary w-full max-w-xs bg-white p-4 h-[10vh]"
           />
 
-          <label
-            htmlFor="image_src"
-            className="self-start text-gray-700 font-bold p-3"
-          >
+          <label htmlFor="image_src" className=" text-gray-700 font-bold p-3">
             Post Image link{" "}
           </label>
           <input

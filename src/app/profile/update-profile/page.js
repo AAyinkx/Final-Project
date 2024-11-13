@@ -14,7 +14,7 @@ export default async function UpdateProfilePage() {
   return (
     <>
       <div className="mx-11">
-        <h1 className="text-4xl text-center font-extrabold bg-gradient-to-r from-green-500 to-blue-500 text-transparent bg-clip-text drop-shadow-lg mb-6">
+        <h1 className="text-4xl text-center font-extrabold bg-gradient-to-r from-green-500 to-blue-500 text-transparent bg-clip-text drop-shadow-lg mb-6 mt-6">
           Update Profile Form
         </h1>
         <Link
