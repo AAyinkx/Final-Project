@@ -1,5 +1,6 @@
 import QuizApi5Hanifah from "@/components/QuizApi5Hanifah";
 import quizOptions from "@/lib/quizCategoriesAll.json";
+import BlueScreen from "@/components/BlueScreen";
 export default async function Quiz2({ params }) {
   const quizParam = await params;
   const wrangledCategory = quizOptions.categories;
