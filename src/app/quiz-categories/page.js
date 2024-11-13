@@ -9,10 +9,13 @@ export default function QuizCategoriesPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {quizCategories.categories.map((category) => (
           <div
-            className="place-content-center text-center bg-sky-500 hover:bg-sky-600 rounded-md p-4 font-bold"
+            className="text-center place-content-center bg-sky-500 hover:bg-sky-600 bg-opacity-60 p-4 rounded-lg shadow-lg border-2 transform transition-transform hover:scale-105 hover:shadow-xl"
             key={category.id}
           >
-            <Link href={`/quiz-categories/${category.id}`}>
+            <Link
+              className="block  font-bold text-blue-800 transition duration-300 "
+              href={`/quiz-categories/${category.id}`}
+            >
               {category.name}
             </Link>
           </div>

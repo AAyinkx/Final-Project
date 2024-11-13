@@ -6,17 +6,17 @@ export default function MatchingChallengesPage() {
         Matching Activities
       </h1>
       <div className="flex flex-row gap-4 m-4 flex-wrap justify-center ">
-        <div className="max-w-xs w-full bg-blue-50 bg-opacity-60 p-6 rounded-lg shadow-lg border-2 border-blue-300 transform transition-transform hover:scale-105 hover:shadow-xl">
+        <div className="max-w-xs w-full text-center bg-sky-500 hover:bg-sky-600 bg-opacity-60 p-6 rounded-lg shadow-lg border-2 transform transition-transform hover:scale-105 hover:shadow-xl">
           <Link
-            className="block text-2xl font-bold text-blue-800 hover:text-blue-400 transition duration-300"
-            href={`/code/cities`}
+            className="block text-2xl font-bold text-blue-800 transition duration-300 "
+            href={`/code/coding-challenge`}
           >
             Cities
           </Link>
         </div>
-        <div className="max-w-xs w-full bg-blue-50 bg-opacity-60 p-6 rounded-lg shadow-lg border-2 border-blue-300 transform transition-transform hover:scale-105 hover:shadow-xl">
+        <div className="max-w-xs w-full text-center bg-sky-500 hover:bg-sky-600 bg-opacity-60 p-6 rounded-lg shadow-lg border-2 transform transition-transform hover:scale-105 hover:shadow-xl">
           <Link
-            className="block text-2xl font-bold text-blue-800 hover:text-blue-400 transition duration-300"
+            className="block text-2xl font-bold text-blue-800 transition duration-300 "
             href={`/code/coding-challenge`}
           >
             Coding Challenge
