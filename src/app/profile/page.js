@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { dateConverter } from "@/utils/handyFunctions";
 import { auth, currentUser } from "@clerk/nextjs/server";
+import QuizHistory from "@/components/QuizHistory";
 
 const date = new Date();
 export default async function profilePage() {
@@ -194,6 +195,7 @@ export default async function profilePage() {
           ))}
         </div>
       </section>
+      <QuizHistory userId={user.id} />
     </>
   );
 }

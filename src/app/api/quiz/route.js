@@ -16,14 +16,14 @@ export async function GET(req) {
   console.log("length of response", length);
   console.log("array", JSON.stringify(data).length);
   // adding a delay before retrying the api fetch
-  if (data.response_code != 0) {
+  if (data.response_code > 0) {
     await delay(5000);
     response = await fetch(
       `https://opentdb.com/api.php?amount=${qry}&category=${category}&type=multiple`
     );
     data = await response.json();
   }
-  if (data.response_code != 0) {
+  if (data.response_code > 0) {
     await delay(5000);
     response = await fetch(
       `https://opentdb.com/api.php?amount=${qry}&category=${category}&type=multiple`
