@@ -2,9 +2,13 @@ import { db } from "@/utils/dbConnection";
 
 import Image from "next/image";
 import Link from "next/link";
+import { currentUser } from "@clerk/nextjs/server";
 
 export default async function CommunityPage() {
-  const response = await db.query(`SELECT * FROM users`);
+  const user = await currentUser();
+  const response = await db.query(`SELECT * FROM users WHERE clerk_id != $1`, [
+    user.id,
+  ]);
   const data = response.rows;
   console.log(data);
 
