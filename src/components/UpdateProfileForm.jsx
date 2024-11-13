@@ -55,7 +55,7 @@ export default function UpdateProfileForm({
         >
           <label
             htmlFor="date_of_birth"
-            className="self-start text-gray-700 font-bold p-3"
+            className=" text-gray-700 font-bold p-3"
           >
             Date of birth{" "}
           </label>

@@ -34,46 +34,56 @@ export default async function CreateProfileForm({
     redirect("/profile");
   }
   return (
-    <div id="form-container">
-      <form id="the-form" action={handleSubmit}>
-        <div className="form-section">
-          <div className="title">
-            <label htmlFor="bio">Write your Bio! ✒️</label>
-          </div>
-          <div className="input">
-            <textarea
-              type="text"
-              id="bio"
-              name="bio"
-              placeholder="Please write a bio for your account"
-              required
-            />
-          </div>
-          <div className="input">
-            <label htmlFor="image_src"> Input your image link! </label>
-            <input type="text" id="image_src" name="image_src" />
-          </div>
-          <div className="input">
-            <label htmlFor="date_of_birth"> Date of birth </label>
-            <input type="date" id="date_of_birth" name="date_of_birth" />
-          </div>
-          {/* <div className="input">
-            <label htmlFor="parent_name"> Full Name</label>
-            <input
-              type="text"
-              id="parent_name"
-              name="parent_name"
-              placeholder="full name"
-              required
-            />
-          </div> */}
-        </div>
-        <div className="form-section" id="submit">
-          <button id="submit-button" type="submit">
-            CREATE YOUR PROFILE!
+    <>
+      <div className="flex flex-row items-center justify-center">
+        <form
+          action={handleSubmit}
+          className="flex flex-col items-center bg-gradient-to-b from-gray-100 to-gray-200 w-[28rem] my-8 border border-blue-300 p-6 rounded-lg shadow-lg"
+        >
+          <label htmlFor="bio" className=" text-gray-700 font-bold p-3">
+            Bio{" "}
+          </label>
+          <textarea
+            type="text"
+            id="bio"
+            name="bio"
+            placeholder="Write your Bio! ✒️"
+            required
+            className="input input-bordered input-primary w-full max-w-xs bg-white"
+          />
+          <label htmlFor="image_src" className=" text-gray-700 font-bold p-3">
+            Post Image link{" "}
+          </label>
+          <input
+            type="text"
+            id="image_src"
+            name="image_src"
+            placeholder="Input your image link!"
+            required
+            className="input input-bordered input-primary w-full max-w-xs bg-white"
+          />
+          <label
+            htmlFor="date_of_birth"
+            className=" text-gray-700 font-bold p-3"
+          >
+            Date of birth{" "}
+          </label>
+
+          <input
+            type="date"
+            id="date_of_birth"
+            name="date_of_birth"
+            className="input input-bordered input-primary w-full max-w-xs bg-white"
+          />
+
+          <button
+            className=" w-full btn glass text-white font-bold bg-sky-600 p-3 mt-4"
+            type="submit post"
+          >
+            Create your profile
           </button>
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
+    </>
   );
 }

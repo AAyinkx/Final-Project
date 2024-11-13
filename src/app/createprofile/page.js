@@ -5,7 +5,11 @@ export default async function createProfile() {
   const user = await currentUser();
   return (
     <>
-      <h1> Create Profile </h1>
+      <div className="mx-11"></div>
+      <h1 className="text-4xl text-center font-extrabold bg-gradient-to-r from-green-500 to-blue-500 text-transparent bg-clip-text drop-shadow-lg mb-6">
+        {" "}
+        Create Profile{" "}
+      </h1>
       <CreateProfileForm
         clerk_id={user.id}
         username={user.username}
