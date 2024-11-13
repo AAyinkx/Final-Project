@@ -12,7 +12,7 @@ export default function QuizApi5Hanifah({ category }) {
   // const [shuffledQuestions, setShuffledQuestion] = useState([]);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
-  const numberOfQuestions = 5;
+  const numberOfQuestions = 10;
 
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
