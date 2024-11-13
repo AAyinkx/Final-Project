@@ -6,6 +6,7 @@ import { randomShuffle } from "@/utils/randomShuffle";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import QuizResults from "./QuizResults";
+import BlueScreen from "./BlueScreen";
 export default function QuizApi5Hanifah({ category }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   // const [shuffledQuestions, setShuffledQuestion] = useState([]);
@@ -83,6 +84,7 @@ export default function QuizApi5Hanifah({ category }) {
         />
       ) : (
         <>
+          <BlueScreen />
           <div>
             <progress
               className="progress progress-accent  text-center"
