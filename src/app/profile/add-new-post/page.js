@@ -49,7 +49,7 @@ export default function AddNewPost() {
           <input
             type="text"
             name="title"
-            placeholder="what is the title of your post?"
+            placeholder="What is the title of your post?"
             id="title"
             required
             className="input input-bordered input-primary w-full max-w-xs bg-white"
@@ -74,7 +74,7 @@ export default function AddNewPost() {
           <input
             type="text"
             name="image_src"
-            placeholder="please ensure you enter an image link"
+            placeholder="Please ensure you enter an image link"
             id="image_src"
             className="input input-bordered input-primary w-full max-w-xs bg-white"
           />
