@@ -4,6 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { currentUser } from "@clerk/nextjs/server";
 
+export const metadata = {
+  title: "Mind Match - Take a look at our community",
+  description: "get to know our other users",
+};
+
 export default async function CommunityPage() {
   const user = await currentUser();
   const response = await db.query(`SELECT * FROM users WHERE clerk_id != $1`, [

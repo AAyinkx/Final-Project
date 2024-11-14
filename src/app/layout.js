@@ -15,6 +15,13 @@ export const baloo = Baloo_Bhaina_2({
 export const metadata = {
   title: "MindMatch",
   description: "More Than a Quiz - It's a Mind Match",
+  openGraph: {
+    title: "MindMatch",
+    description: "More Than a Quiz - It's a Mind Match",
+    type: "website",
+    url: "https://mind-match-virid.vercel.app/",
+    image: "https://mind-match-virid.vercel.app/MindMatch1.png", // add an appropriate image to your public folder
+  },
 };
 
 export default function RootLayout({ children }) {

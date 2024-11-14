@@ -1,4 +1,10 @@
 import Link from "next/link";
+
+export const metadata = {
+  title: "Mind Match - Choose a game",
+  description: "choose a matching game to play",
+};
+
 export default function MatchingChallengesPage() {
   return (
     <>

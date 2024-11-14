@@ -3,6 +3,11 @@ import Link from "next/link";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import UpdateProfileForm from "@/components/UpdateProfileForm";
 
+export const metadata = {
+  title: "Mind Match - Update profile",
+  description: "update your profile",
+};
+
 export default async function UpdateProfilePage() {
   const user = await currentUser();
   const response = await db.query(

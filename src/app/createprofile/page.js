@@ -1,6 +1,11 @@
 import CreateProfileForm from "@/components/createProfileForm";
 import { auth, currentUser } from "@clerk/nextjs/server";
 
+export const metadata = {
+  title: "Mind Match - Create profile",
+  description: "create your profile",
+};
+
 export default async function createProfile() {
   const user = await currentUser();
   return (

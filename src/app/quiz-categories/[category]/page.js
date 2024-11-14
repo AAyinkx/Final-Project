@@ -1,6 +1,24 @@
 import QuizApi5Hanifah from "@/components/QuizApi5Hanifah";
 import quizOptions from "@/lib/quizCategoriesAll.json";
 import BlueScreen from "@/components/BlueScreen";
+
+export async function generateMetadata({ params }) {
+  const quizParam = await params;
+  const wrangledCategory = quizOptions.categories;
+  let categoryName;
+  for (const c of wrangledCategory) {
+    if (c.id == quizParam.category) {
+      categoryName = c.name;
+      // Exit the loop once the match is found
+    }
+  }
+  //I am returning a metadata object
+  return {
+    title: `Mind Match - ${categoryName}`,
+    description: `A quiz on ${categoryName}`,
+  };
+}
+
 export default async function Quiz2({ params }) {
   const quizParam = await params;
   const wrangledCategory = quizOptions.categories;

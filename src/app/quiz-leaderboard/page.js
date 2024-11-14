@@ -1,5 +1,10 @@
 import Leaderboard from "@/components/Leaderboard";
 
+export const metadata = {
+  title: "Mind Match - Quiz Leaderboard",
+  description: "Our top performers",
+};
+
 export default function Leaderboardpage() {
   return (
     <div className="p-4">
