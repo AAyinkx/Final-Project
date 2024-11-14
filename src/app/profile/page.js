@@ -9,6 +9,12 @@ import ImageComponentPost from "@/components/ImageComponentPost";
 
 const date = new Date();
 export default async function profilePage() {
+  // the error always throws because we're deliberately causing a problem
+  // maybe we didn't get a param and this page will not work without it
+
+  // temporary code to generate an error for testing
+  // throw new Error("I deliberately broke this page, because I'm a bad person");
+
   const user = await currentUser();
 
   const response = await db.query(
