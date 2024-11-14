@@ -11,13 +11,14 @@ export default async function UpdatePage({ params }) {
   return (
     <>
       <div className="mx-11">
-        <h1 className="font-bold my-7">Update Form</h1>
+        <h1 className="text-5xl text-center font-extrabold bg-gradient-to-r from-green-500 to-blue-500 text-transparent bg-clip-text drop-shadow-lg mt-6 mb-8">
+          Update Form
+        </h1>
         <Link
-          className="hover:scale-110 ease-in-out transition-transform duration-300 font-bold bg-green-100 w-fit p-1.5 border-green-800 border-4
-            rounded-lg "
+          className="transition-transform duration-300 transform hover:scale-105  text-white font-semibold bg-gradient-to-r from-blue-600 to-green-600 px-6 py-3  rounded-full shadow-lg place-content-center "
           href={`/profile/${myParams.id}`}
         >
-          go back ...
+          Go back
         </Link>
       </div>
       <div className="flex flex-row items-center justify-center">

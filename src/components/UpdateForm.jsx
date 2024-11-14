@@ -42,9 +42,11 @@ export default function UpdateForm({
       <div className="flex flex-row items-center justify-center">
         <form
           action={handleUpdate}
-          className="flex flex-col items-center bg-green-50 w-80 my-8 border-4 border-green-700 p-4 rounded-lg"
+          className="flex flex-col items-center bg-gradient-to-b from-gray-100 to-gray-200 w-[28rem] my-8 border border-blue-300 p-6 rounded-lg shadow-lg"
         >
-          <label htmlFor="title">Title </label>
+          <label htmlFor="title" className="text-gray-700 font-bold p-3">
+            Title{" "}
+          </label>
           <input
             type="text"
             name="title"
@@ -52,10 +54,12 @@ export default function UpdateForm({
             id="title"
             defaultValue={title}
             required
-            className="text-orange-600 p-1"
+            className="input input-bordered input-primary w-full max-w-xs bg-white"
           />
 
-          <label htmlFor="content">Content </label>
+          <label htmlFor="content" className="text-gray-700 font-bold p-3">
+            Content{" "}
+          </label>
           <textarea
             type="text"
             name="content"
@@ -63,24 +67,26 @@ export default function UpdateForm({
             id="content"
             defaultValue={content}
             required
-            className="text-orange-600 p-1"
+            className="input input-bordered input-primary w-full max-w-xs bg-white"
           />
 
-          <label htmlFor="image_src">post Image link </label>
+          <label htmlFor="image_src" className="text-gray-700 font-bold p-3">
+            {" "}
+            Post Image link{" "}
+          </label>
           <input
             type="text"
             name="image_src"
             placeholder="enter an image link"
             id="image_src"
             defaultValue={image_src}
-            className="text-orange-600 p-1"
+            className="input input-bordered input-primary w-full max-w-xs bg-white"
           />
           <button
             type="submit post"
-            className="border-green-800 border-4 bg-green-100 text-zinc-900 p-2 m-4 hover:bg-green-800 hover:text-green-50
-          transition duration-300 ease-in-out rounded-lg"
+            className="w-full btn glass text-white font-bold bg-sky-600 p-3 mt-4"
           >
-            update post
+            Update post
           </button>
         </form>
       </div>

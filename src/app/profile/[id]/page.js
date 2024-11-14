@@ -31,30 +31,38 @@ export default async function PostIdPage({ params }) {
   // ===========================
   return (
     <>
-      <h2>post number {myParams.id}</h2>
-      <div className="my-4 mx-2">
-        <Link
-          className="hover:scale-110 ease-in-out transition-transform duration-300 font-bold bg-green-100 w-fit p-1.5 border-green-800 border-4
-            rounded-lg my-10"
-          href="/profile"
-        >
-          go back ...
-        </Link>
-      </div>
-      <Link
-        className="hover:scale-110 ease-in-out transition-transform duration-300 font-bold bg-green-100 w-fit p-1.5 border-green-800 border-4
+      <div className="flex flex-col mt-4 mb-5 gap-16 mx-2">
+        <div>
+          <Link
+            className="transition-transform duration-300 transform hover:scale-105  text-white font-semibold bg-gradient-to-r from-blue-600 to-green-600 px-6 py-3  rounded-full shadow-lg place-content-center"
+            href="/profile"
+          >
+            Go back
+          </Link>
+        </div>
+        <div>
+          <Link
+            className="hover:scale-105 ease-in-out transition-transform duration-300 font-bold bg-blue-800 w-fit p-0.5 bg-gradient-to-r from-green-200 to-green-400 px-6 py-3  border-2
             rounded-lg "
-        href={`/profile/${myParams.id}/update`}
-      >
-        update post entry
-      </Link>
+            href={`/profile/${myParams.id}/update`}
+          >
+            Update post entry
+          </Link>
+        </div>
+      </div>
 
       <section className="flex flex-col items-center">
-        <h1 className="font-bold">
+        <h2 className="text-5xl text-center font-extrabold bg-gradient-to-r from-green-500 to-blue-500 text-transparent bg-clip-text drop-shadow-lg mb-6">
+          Title&#58; {data.title}
+        </h2>
+
+        <h1 className="font-extrabold text text-2xl text-blue-900">
           Date of post&#58; {dateConverter(data.posted_at)}
         </h1>
-        <h1 className="font-bold">post author&#58; {myUsername}</h1>
-        <h2 className="font-bold">Title&#58; {data.title}</h2>
+        <h1 className="font-extrabold text text-2xl text-blue-900">
+          Post author&#58; {myUsername}
+        </h1>
+
         <div className="flex flex-col items-center gap-4 p-6 w-[70vw] min-w-[350px]">
           {/* <Image
             alt={data.title}
@@ -68,7 +76,7 @@ export default async function PostIdPage({ params }) {
             src={data.image_src}
             width={300}
             height={300}
-            className=" border-green-800 border-4 rounded-2xl"
+            className="rounded-lg border-4 border-blue-300 my-2"
           />
           <p>{data.content}</p>
         </div>
