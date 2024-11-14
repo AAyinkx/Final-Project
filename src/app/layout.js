@@ -6,6 +6,7 @@ import { neobrutalism } from "@clerk/themes";
 import NavBar from "@/components/NavBar";
 import Script from "next/script";
 import { Baloo_Bhaina_2 } from "next/font/google";
+import OGImage from "@/../public/MindMatch1.png";
 
 export const baloo = Baloo_Bhaina_2({
   subsets: ["latin"],
@@ -20,7 +21,12 @@ export const metadata = {
     description: "More Than a Quiz - It's a Mind Match",
     type: "website",
     url: "https://mind-match-virid.vercel.app/",
-    image: "https://mind-match-virid.vercel.app/MindMatch1.png", // add an appropriate image to your public folder
+    images: {
+      url: "https://mind-match-virid.vercel.app/MindMatch1.png",
+      width: 1800,
+      height: 1600,
+      alt: "My custom alt",
+    }, // add an appropriate image to your public folder
   },
 };
 
