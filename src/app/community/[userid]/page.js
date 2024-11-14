@@ -11,6 +11,21 @@ import QuizHistory from "@/components/QuizHistory";
 import ImageComponentProfile from "@/components/ImageComponentProfile";
 import ImageComponentPost from "@/components/ImageComponentPost";
 
+export async function generateMetadata({ params }) {
+  const myParams = await params;
+  const userId = myParams.userid;
+  const response = await db.query(
+    `SELECT * FROM users WHERE clerk_id='${userId}'`
+  );
+
+  const data = response.rows[0];
+  //I am returning a metadata object
+  return {
+    title: `Mind Match - welcome to the page of ${data.username}`,
+    description: `The profile page of ${data.username}`,
+  };
+}
+
 export default async function UserPage({ params }) {
   const date = new Date();
   const myParams = await params;

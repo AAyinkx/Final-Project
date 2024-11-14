@@ -8,6 +8,18 @@ import ThumbButton from "@/components/ThumbButton";
 import { currentUser } from "@clerk/nextjs/server";
 import ImageComponentPost from "@/components/ImageComponentPost";
 
+export async function generateMetadata({ params }) {
+  const myParams = await params;
+
+  const post = await db.query(`SELECT * FROM posts WHERE id=${myParams.id};`);
+  const data = post?.rows[0];
+  //I am returning a metadata object
+  return {
+    title: `Mind Match - ${data.title}`,
+    description: `A post on ${data.title}`,
+  };
+}
+
 export default async function UserPostsPage({ params }) {
   const myParams = await params;
   const postId = myParams.id;

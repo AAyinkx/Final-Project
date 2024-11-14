@@ -1,4 +1,10 @@
 import CodingMatching from "@/components/CodingMatching";
+
+export const metadata = {
+  title: "Mind Match - Code Matching",
+  description: "How good is your coding knowledge?",
+};
+
 export default function CodePage() {
   return (
     <>

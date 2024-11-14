@@ -3,6 +3,11 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { auth, currentUser } from "@clerk/nextjs/server";
 
+export const metadata = {
+  title: "Mind Match - add a new post",
+  description: "add a new post",
+};
+
 export default function AddNewPost() {
   async function handleSubmit(formValues) {
     "use server";

@@ -7,6 +7,19 @@ import QuizHistory from "@/components/QuizHistory";
 import ImageComponentProfile from "@/components/ImageComponentProfile";
 import ImageComponentPost from "@/components/ImageComponentPost";
 
+export async function generateMetadata() {
+  const user = await currentUser();
+  const response = await db.query(
+    `SELECT * FROM users WHERE clerk_id='${user.id}'`
+  );
+  const data = response.rows[0];
+  //I am returning a metadata object
+  return {
+    title: `Mind Match - ${data.username}`,
+    description: `The profile page of ${data.username}`,
+  };
+}
+
 const date = new Date();
 export default async function profilePage() {
   // the error always throws because we're deliberately causing a problem

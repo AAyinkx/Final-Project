@@ -2,10 +2,12 @@
 import Link from "next/link";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import Animation2 from "@/components/Animation2";
 
 export default function GlobalError({ error, reset }) {
   return (
     <div className="h-screen flex flex-col items-center justify-center gap-4">
+      <Animation2 />
       <div className="flex flex-col items-center justify-center">
         <h2 className="text-5xl text-center font-extrabold bg-gradient-to-r from-green-500 to-blue-500 text-transparent bg-clip-text drop-shadow-lg mb-2 py-5">
           Oh no! Something went wrong on that page&#33;

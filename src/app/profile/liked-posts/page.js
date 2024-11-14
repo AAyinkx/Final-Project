@@ -5,6 +5,17 @@ import Image from "next/image";
 
 import Link from "next/link";
 import ImageComponentPost from "@/components/ImageComponentPost";
+
+export async function generateMetadata() {
+  const user = await currentUser();
+
+  //I am returning a metadata object
+  return {
+    title: `Mind Match - liked posts of ${user.username}`,
+    description: `Have a look at your likes`,
+  };
+}
+
 export default async function LikedPosts() {
   const user = await currentUser();
   console.log(user.id);

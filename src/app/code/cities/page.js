@@ -1,4 +1,10 @@
 import BoxMatching from "@/components/BoxMatching";
+
+export const metadata = {
+  title: "Mind Match - City Matching",
+  description: "Match the city to the country",
+};
+
 export default function CodePage() {
   return (
     <>

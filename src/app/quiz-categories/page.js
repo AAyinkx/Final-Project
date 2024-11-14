@@ -1,5 +1,11 @@
 import quizCategories from "@/lib/quizCategoriesAll.json";
 import Link from "next/link";
+
+export const metadata = {
+  title: "Mind Match - Choose a quiz category",
+  description: "which category would you like to try?",
+};
+
 export default function QuizCategoriesPage() {
   return (
     <div className="flex flex-col items-center  min-h-screen p-4">

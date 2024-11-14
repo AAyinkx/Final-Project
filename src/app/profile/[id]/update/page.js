@@ -2,6 +2,11 @@ import UpdateForm from "@/components/UpdateForm";
 import { db } from "@/utils/dbConnection";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Mind Match - Update post",
+  description: "update your post",
+};
+
 export default async function UpdatePage({ params }) {
   const myParams = await params;
   const posts = await db.query(`SELECT * FROM posts WHERE id=${myParams.id};`);
