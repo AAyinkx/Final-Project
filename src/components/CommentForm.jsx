@@ -45,7 +45,7 @@ export default async function CommentForm({ myParams }) {
             placeholder="Please comment on the post ..."
             id="comment"
             required
-            className="input input-bordered input-primary w-full max-w-xs bg-white"
+            className="input input-bordered input-primary w-full max-w-xs bg-white p-3 h-[10vh]"
           />
           <button
             type="submit"

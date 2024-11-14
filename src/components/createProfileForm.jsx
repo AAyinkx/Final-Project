@@ -49,7 +49,7 @@ export default async function CreateProfileForm({
             name="bio"
             placeholder="Write your Bio! ✒️"
             required
-            className="input input-bordered input-primary w-full max-w-xs bg-white"
+            className="input input-bordered input-primary w-full max-w-xs bg-white p-3 h-[10vh]"
           />
           <label htmlFor="image_src" className=" text-gray-700 font-bold p-3">
             Post Image link{" "}
