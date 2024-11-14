@@ -29,23 +29,27 @@ export default async function CommentForm({ myParams }) {
       <div className="flex flex-row items-center justify-center">
         <form
           action={handleSubmit}
-          className="flex flex-col items-center bg-green-50 w-80 my-8 border-4 border-green-700 p-4 rounded-lg"
+          className="flex flex-col items-center bg-gradient-to-b from-gray-100 to-gray-200 w-[28rem] my-8 border border-blue-300 p-6 rounded-lg shadow-lg"
         >
-          <p className="font-semibold m-4">Please leave a comment</p>
+          <p className="text-gray-500 font-bold text-2xl p-3">
+            Please leave a comment
+          </p>
 
-          <label htmlFor="comment">Comment </label>
+          <label htmlFor="comment" className="text-gray-700 font-bold">
+            {" "}
+            Comment{" "}
+          </label>
           <textarea
             type="text"
             name="comment"
-            placeholder="please comment on the post ..."
+            placeholder="Please comment on the post ..."
             id="comment"
             required
-            className="text-orange-600 p-1"
+            className="input input-bordered input-primary w-full max-w-xs bg-white"
           />
           <button
             type="submit"
-            className="hover:scale-110 ease-in-out transition-transform duration-300 font-bold bg-green-100 w-fit p-1 border-green-800 border-2
-            rounded-lg my-4"
+            className="w-full btn glass text-white font-bold bg-sky-600 p-3 mt-4"
           >
             Send Comment
           </button>

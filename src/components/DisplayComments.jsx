@@ -21,16 +21,25 @@ export default async function DisplayComments({ myParams }) {
 
   return (
     <>
-      <h2>comments</h2>
+      <h2 className="text-4xl text-center font-extrabold bg-gradient-to-r from-green-500 to-blue-500 text-transparent bg-clip-text drop-shadow-lg mb-6">
+        {" "}
+        Comments
+      </h2>
       <section className="flex flex-col items-center ">
         {commentsData.map((comment) => (
           <div
             key={comment.id}
-            className="flex flex-col items-center border-black border-2 w-96 m-4 p-4 rounded-lg"
+            className="flex flex-col items-center border-gray-300 border-2 w-[28rem] m-4 p-6 rounded-lg"
           >
-            <p>date&#58; {dateConverter(comment.posted_at)}</p>
-            <p>name&#58; {comment.username}</p>
-            <p>comment&#58; {comment.comment}</p>
+            <p className="font-bold text-gray-500 mb-3">
+              Date&#58; {dateConverter(comment.posted_at)}
+            </p>
+            <p className="font-bold text-xl text-blue-700">
+              Name&#58; {comment.username}
+            </p>
+            <p className="font-bold text-xl text-blue-700 mb-3">
+              Comment&#58; {comment.comment}
+            </p>
             <DeleteButton id={comment.id} handleDelete={handleDelete} />
           </div>
         ))}
