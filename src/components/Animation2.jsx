@@ -3,7 +3,7 @@ import Image from "next/image";
 import logo from "@/../public/MindMatch2.png";
 import { motion } from "framer-motion";
 
-export default function Animation() {
+export default function Animation2() {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.1 }}
@@ -11,7 +11,7 @@ export default function Animation() {
       transition={{ duration: 2 }}
       className="flex flex-col items-center"
     >
-      <Image src={logo} alt="Mind Match Logo" width={500} height={500} />
+      <Image src={logo} alt="Mind Match Logo" width={200} height={200} />
     </motion.div>
   );
 }

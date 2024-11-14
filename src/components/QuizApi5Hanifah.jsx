@@ -38,9 +38,9 @@ export default function QuizApi5Hanifah({ category }) {
     setShowScore(false);
   };
   //Handle the user clicking the button
-  const handleAnswerOptionClick = (isCorrect) => {
+  const handleAnswerOptionClick = (correct) => {
     //Checking if answer = correct_answer
-    if (isCorrect) {
+    if (correct) {
       setScore(score + 1);
     }
 
@@ -55,6 +55,7 @@ export default function QuizApi5Hanifah({ category }) {
   //Credit to Ash
   useEffect(() => {
     async function waitQuestions() {
+      let timer;
       await questions[currentQuestion];
       if (questions[currentQuestion]) {
         setAnswers([
@@ -125,7 +126,7 @@ export default function QuizApi5Hanifah({ category }) {
               )}
             </h2>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 grid-rows-2 gap-4">
             {randomShuffle(answers).map((answerOption, index) => {
               return (
                 <button
