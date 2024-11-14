@@ -6,6 +6,7 @@ import CommentForm from "@/components/CommentForm";
 import DisplayComments from "@/components/DisplayComments";
 import ThumbButton from "@/components/ThumbButton";
 import { currentUser } from "@clerk/nextjs/server";
+import ImageComponentPost from "@/components/ImageComponentPost";
 
 export default async function UserPostsPage({ params }) {
   const myParams = await params;
@@ -102,7 +103,14 @@ export default async function UserPostsPage({ params }) {
         <h1 className="font-bold">post author&#58; {myUserName}</h1>
         <h2 className="font-bold">Title&#58; {data.title}</h2>
         <div className="flex flex-col items-center gap-4 p-6 w-[70vw] min-w-[350px]">
-          <Image
+          {/* <Image
+            alt={data.title}
+            src={data.image_src}
+            width={300}
+            height={300}
+            className=" border-green-800 border-4 rounded-2xl"
+          /> */}
+          <ImageComponentPost
             alt={data.title}
             src={data.image_src}
             width={300}

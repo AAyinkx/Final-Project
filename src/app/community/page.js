@@ -14,7 +14,7 @@ export default async function CommunityPage() {
 
   return (
     <>
-      <h1 className="text-5xl text-center font-extrabold bg-gradient-to-r from-green-500 to-blue-500 text-transparent bg-clip-text drop-shadow-lg mb-6">
+      <h1 className="text-5xl text-center font-extrabold bg-gradient-to-r from-green-500 to-blue-500 text-transparent bg-clip-text drop-shadow-lg mb-6 mt-6">
         Users
       </h1>
       <div className="flex flex-row gap-4 m-4 flex-wrap justify-center ">

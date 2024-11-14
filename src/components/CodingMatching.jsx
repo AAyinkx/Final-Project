@@ -28,11 +28,10 @@ export default function CodingMatching() {
     <>
       {win && <h2 className="relative text-xl text-black">You Win!</h2>}
       <div className="flex gap-5 mt-10">
-        <div className="flex flex-col gap-2">
+        <div className="grid grid-cols-1 grid-rows-5 gap-2">
           {preMatchedCodeData.map((match, index) => (
             <button
-              className={`flex flex-col items-center justify-center
-            rounded px-4 py-2 w-[30vw] h-[12vh] text-white font-bold
+              className={`flex flex-col items-center place-content-center rounded px-4 py-2 w-[35vw] text-white font-bold
             hover:bg-gray-700 hover:scale-105 transition ease-in duration-300
             ${isMatched(match) ? "bg-green-950" : "bg-gray-500"}
             ${selectedMatch === match && "bg-gray-900"}
@@ -44,11 +43,10 @@ export default function CodingMatching() {
             </button>
           ))}
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="grid grid-cols-1 grid-rows-5 gap-2">
           {shuffledMatchData.map((match, index) => (
             <button
-              className={`=flex flex-col items-center justify-center
-            bg-gray-500 rounded px-4 py-2 w-[30vw] h-[12vh] text-white font-bold
+              className={`flex flex-col items-center place-content-center bg-gray-500 rounded px-4 py-2 w-[35vw]  text-white font-bold
             ${
               selectedMatch !== null
                 ? "hover:bg-gray-700 hover:scale-105 transition ease-in duration-300"

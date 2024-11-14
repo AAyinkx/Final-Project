@@ -9,13 +9,14 @@ import QuizResults from "./QuizResults";
 import BlueScreen from "./BlueScreen";
 export default function QuizApi5Hanifah({ category }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  // const [shuffledQuestions, setShuffledQuestion] = useState([]);
+  const [correct, setCorrect] = useState(false);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
   const numberOfQuestions = 10;
-
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
+  const [colour, setColour] = useState("text-black"); // Default color
+  const [isColourChanged, setIsColourChanged] = useState(false); // Track if color should change
 
   const { user } = useUser();
   useEffect(() => {
@@ -72,6 +73,26 @@ export default function QuizApi5Hanifah({ category }) {
     waitQuestions();
   }, [currentQuestion, questions]);
 
+  //Timerout colour to allow user to know if they were wrong or right
+  useEffect(() => {
+    let timer;
+    if (isColourChanged) {
+      if (correct) {
+        setColour("text-green-500 font-bold");
+      }
+      if (!correct) {
+        setColour("text-red-500 font-bold");
+      }
+    }
+
+    timer = setTimeout(() => {
+      setColour("text-black"); // Reset to black
+      setIsColourChanged(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [isColourChanged, correct]);
+
   return (
     <div className="max-w-xl w-full bg-white rounded-lg shadow-md p-6">
       {showScore ? (
@@ -87,14 +108,14 @@ export default function QuizApi5Hanifah({ category }) {
           <BlueScreen />
           <div>
             <progress
-              className="progress progress-accent  text-center"
+              className="progress progress-accent  text-center "
               value={((currentQuestion + 1) / numberOfQuestions) * 100}
               max="100"
             ></progress>
             <div>
               <span>Question {currentQuestion + 1}</span>/{numberOfQuestions}
             </div>
-            <h2 className="text-lg font-bold mb-4">
+            <h2 className={`text-lg font-bold mb-4 ${colour}`}>
               {questions[currentQuestion] ? (
                 <p>{decode(questions[currentQuestion].question)}</p>
               ) : (
@@ -109,10 +130,12 @@ export default function QuizApi5Hanifah({ category }) {
               return (
                 <button
                   key={index}
-                  className="btn btn-accent py-2 px-4"
-                  onClick={() =>
-                    handleAnswerOptionClick(answerOption.isCorrect)
-                  }
+                  className="btn btn-accent py-2 px-4 "
+                  onClick={() => {
+                    setCorrect(answerOption.isCorrect === true);
+                    setIsColourChanged(true);
+                    handleAnswerOptionClick(answerOption.isCorrect);
+                  }}
                 >
                   {decode(answerOption.answerText)}
                 </button>

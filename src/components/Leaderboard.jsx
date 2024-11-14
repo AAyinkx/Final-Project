@@ -2,6 +2,7 @@ import { db } from "@/utils/dbConnection";
 import { dateConverter2 } from "@/utils/handyFunctions";
 import Image from "next/image";
 import Link from "next/link";
+import ImageComponentProfile from "./ImageComponentProfile";
 
 export default async function Leaderboard() {
   const quizScores = await db.query(
@@ -35,7 +36,13 @@ LIMIT 10;`
                   <div className="flex items-center gap-3">
                     <div className="avatar">
                       <div className="mask mask-squircle h-12 w-12">
-                        <Image
+                        {/* <Image
+                          src={quiz.image_src}
+                          alt="Avatar Tailwind CSS Component"
+                          width={200}
+                          height={200}
+                        /> */}
+                        <ImageComponentProfile
                           src={quiz.image_src}
                           alt="Avatar Tailwind CSS Component"
                           width={200}

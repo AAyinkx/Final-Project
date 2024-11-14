@@ -8,6 +8,9 @@ import { dateConverter } from "@/utils/handyFunctions";
 import FollowButton from "@/components/FollowButton";
 import ThumbButton from "@/components/ThumbButton";
 import QuizHistory from "@/components/QuizHistory";
+import ImageComponentProfile from "@/components/ImageComponentProfile";
+import ImageComponentPost from "@/components/ImageComponentPost";
+
 export default async function UserPage({ params }) {
   const date = new Date();
   const myParams = await params;
@@ -156,13 +159,20 @@ WHERE users.clerk_id = '${userId}';`
           <p className="text-gray-600 mt-2">
             Age&#58; {Math.floor((date - data.date_of_birth) / 31536000000)}
           </p>
-          <Image
+          <ImageComponentProfile
             alt={data.username}
             src={data.image_src}
             width={300}
             height={300}
             className="mx-auto mt-4 rounded-full border-4 border-green-400"
           />
+          {/* <Image
+            alt={data.username}
+            src={data.image_src}
+            width={300}
+            height={300}
+            className="mx-auto mt-4 rounded-full border-4 border-green-400"
+          /> */}
           <p className="mt-2 text-blue-700 font-medium">
             Username&#58; {data.username}
           </p>
@@ -183,7 +193,16 @@ WHERE users.clerk_id = '${userId}';`
             <section>
               <p>Date&#58; {dateConverter(post.posted_at)}</p>
               <div>
-                <Image
+                {/* <Image
+                  alt={post.title}
+                  src={post.image_src}
+                  // objectFit="cover"
+                  quality={100}
+                  width={100}
+                  height={100}
+                  className="rounded-lg border-2 border-blue-200 my-2"
+                /> */}
+                <ImageComponentPost
                   alt={post.title}
                   src={post.image_src}
                   // objectFit="cover"

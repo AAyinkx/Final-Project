@@ -30,7 +30,7 @@ export default function AddNewPost() {
 
   return (
     <>
-      <h1 className="text-5xl text-center font-extrabold bg-gradient-to-r from-green-500 to-blue-500 text-transparent bg-clip-text drop-shadow-lg mb-6">
+      <h1 className="text-5xl text-center font-extrabold bg-gradient-to-r from-green-500 to-blue-500 text-transparent bg-clip-text drop-shadow-lg mb-6 mt-6">
         Add a new post
       </h1>
       <div className="flex flex-row items-center justify-center">
@@ -56,10 +56,10 @@ export default function AddNewPost() {
           <textarea
             type="text"
             name="content"
-            placeholder="enter your blog post here..."
+            placeholder="Enter your blog post here..."
             id="content"
             required
-            className="input input-bordered input-primary w-full max-w-xs bg-white"
+            className="input input-bordered input-primary w-full max-w-xs bg-white p-4 h-[20vh]"
           />
 
           <label htmlFor="image_src" className=" text-gray-700 font-bold p-3">
