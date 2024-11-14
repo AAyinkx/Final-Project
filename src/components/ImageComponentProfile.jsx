@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import defaultImage from "@/../public/default-profile.jpg";
+import defaultImage from "@/../public/try-again.png";
 export default function ImageComponentProfile({
   src,
   width,
