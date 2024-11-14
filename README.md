@@ -72,12 +72,16 @@ How can we foster a social community around quizzes while ensuring a positive us
 - **Supabase** - Allows us to create and query Postgres databases
 - **Vercel** - Allows us to deploy our app
 
-## Instruction for our App
+## Instructions for our App 📝
 
 - Sign up using Clerk which will then take you to ‘Create profile’ page on the app and follow the instructions! (When you input an image on the form it has to be a secure picture otherwise a default image will appear)
 - Once your profile has been created you can ‘add posts’ with images and it will display on the ‘Profile Page’. You can view who you are following, Post news feed and your quiz history on this page also.
 - On the ‘Profile’ drop down you are able to; ‘Add New Posts’, view ‘Liked Posts’ and ‘Update Your Profile’.
 - The ‘Community page’ will show you all the users on the app and here you are able to click on the user profiles and you can hit the ‘Follow’ button to follow the user and view their profile page, quiz history and like their posts. If you click on the users posts you’ll also be able to leave a lovely comment for them which you’ll be able to see below!
+- Under ‘Matching activities’ you will have a drop down with ‘cities challenge’ and ‘coding challenge’ both of these challenges have the same concept where you have to click on the correct question box and answer and if its correct the boxes will turn green
+- ‘Quiz categories’ Here is where you can see all of our cool categories for our quiz! Click on a category of your choosing and start the quiz
+- Finally we have our leaderboard where you can view the scores of the top 10 users. We have split the leaderboard so you can view the category of the quiz, the score percentage and when they attempted the quiz!
+- Enjoy!
 
 ## Project Reflection
 
@@ -90,10 +94,20 @@ How can we foster a social community around quizzes while ensuring a positive us
 - We worked really well as team colloborating through trell0, discord and google meets
 - Our comunication was excellent as a team. We set out a clear planning at the begining of each day to set the goals we were aiming to acheive.
 - The programming method that worked best for us was mob programming. We found that it worked best having one person programming at one time and the other team members directing and researching when we got stuck (One driver 🚗 Two navigators 🗺️)
+- We set up git rules and best practices at the start of the project (no push to main, need a review by one other member to merge a branch etc). This proved very useful and reduced possible conflicts.
+- We delegated responsibility for different tasks/external applications amongst the group. In general, everyone was kept involved throughout the project.
 
-## What bugs did we encounter? 🪲
+## What went really well ?
 
--
+- The collaboration and communication was great, which ensured an efficient workflow and lack of conflicts.
+- Git version control was applied regularly and our rules helped with this
+- Our planning was thorough and helped keep us organized.
+- We utilized skills and knowledge we picked up all throughout the course
+- We had numerous bugs/technical challenges we had to overcome. We didn’t panic, were persistent and managed to come up with ways to overcome those challenges.
+
+## What could have gone better
+
+- If we had more time we could have added some of our stretch goals like implementing web sockets
 
 ## Help Links
 
@@ -111,16 +125,6 @@ How can we foster a social community around quizzes while ensuring a positive us
 - https://www.freecodecamp.org/news/check-if-a-javascript-string-is-a-url/
 - https://regex101.com/library/gXDhi9?filterFlavors=dotnet&filterFlavors=golang&orderBy=LEAST_POINTS&search=url
 
-Instructions on how to run your app:
+## What bugs did we encounter? 🪲
 
-Reflections:
-
-Please mention the requirements you met and which goals you achieved for this assignment.
-
-🎯 Were there any requirements or goals that you were not quite able to achieve?
-
-🎯 If so, could you please tell us what was it that you found difficult about these tasks?
-
-What went really well and what could have gone better?
-Detailing useful external sources that helped you complete the assignment (e.g Youtube tutorials).
-Describing errors or bugs you encountered while completing your assignment.
+-
