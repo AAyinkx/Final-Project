@@ -16,6 +16,10 @@ How can we foster a social community around quizzes while ensuring a positive us
 
 - [Repo Link](https://github.com/AAyinkx/Final-Project)
 
+## Presentation Link
+
+- [Presentation Link](https://www.canva.com/design/DAGWiH92C-s/6mmq_qEESv5XXSx9ArDTXQ/edit?utm_content=DAGWiH92C-s&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
 ## User Stories🐿️
 
 - 🎯 = MVP 🏹 = Stretch
